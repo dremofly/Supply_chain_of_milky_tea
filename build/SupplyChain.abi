@@ -1,0 +1,359 @@
+{
+  "version": "ultraio:1.0",
+  "types": [
+    {
+      "new_type_name": "account_name",
+      "type": "name"
+    },
+    {
+      "new_type_name": "id_type",
+      "type": "uint64"
+    },
+    {
+      "new_type_name": "u32",
+      "type": "uint32"
+    }
+  ],
+  "structs": [
+    {
+      "fields": [
+        {
+          "name": "farmer",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "addFarmer"
+    },
+    {
+      "fields": [
+        {
+          "name": "distributor",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "addDistributor"
+    },
+    {
+      "fields": [
+        {
+          "name": "retailer",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "addRetailer"
+    },
+    {
+      "fields": [
+        {
+          "name": "consumer",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "addConsumer"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        }
+      ],
+      "base": "",
+      "name": "harvest"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        }
+      ],
+      "base": "",
+      "name": "process"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        }
+      ],
+      "base": "",
+      "name": "pack"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        },
+        {
+          "name": "price",
+          "type": "u32"
+        }
+      ],
+      "base": "",
+      "name": "sell"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        }
+      ],
+      "base": "",
+      "name": "buy"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        }
+      ],
+      "base": "",
+      "name": "ship"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        }
+      ],
+      "base": "",
+      "name": "receive"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        }
+      ],
+      "base": "",
+      "name": "purchase"
+    },
+    {
+      "fields": [],
+      "base": "",
+      "name": "empty"
+    },
+    {
+      "fields": [
+        {
+          "name": "name",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "Farmers"
+    },
+    {
+      "fields": [
+        {
+          "name": "name",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "Distributors"
+    },
+    {
+      "fields": [
+        {
+          "name": "name",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "Retailers"
+    },
+    {
+      "fields": [
+        {
+          "name": "name",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "Consumers"
+    },
+    {
+      "fields": [
+        {
+          "name": "upc",
+          "type": "id_type"
+        },
+        {
+          "name": "state",
+          "type": "u32"
+        },
+        {
+          "name": "price",
+          "type": "u32"
+        },
+        {
+          "name": "originFarmer",
+          "type": "account_name"
+        },
+        {
+          "name": "distributor",
+          "type": "account_name"
+        },
+        {
+          "name": "retailer",
+          "type": "account_name"
+        },
+        {
+          "name": "consumer",
+          "type": "account_name"
+        }
+      ],
+      "base": "",
+      "name": "States"
+    }
+  ],
+  "actions": [
+    {
+      "ricardian_contract": "",
+      "name": "addFarmer",
+      "type": "addFarmer",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "addDistributor",
+      "type": "addDistributor",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "addRetailer",
+      "type": "addRetailer",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "addConsumer",
+      "type": "addConsumer",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "harvest",
+      "type": "harvest",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "process",
+      "type": "process",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "pack",
+      "type": "pack",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "sell",
+      "type": "sell",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "buy",
+      "type": "buy",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "ship",
+      "type": "ship",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "receive",
+      "type": "receive",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "purchase",
+      "type": "purchase",
+      "ability": "normal"
+    },
+    {
+      "ricardian_contract": "",
+      "name": "empty",
+      "type": "empty",
+      "ability": "normal"
+    }
+  ],
+  "tables": [
+    {
+      "index_type": "i64",
+      "keys_names": [
+        "currency"
+      ],
+      "keys_types": [
+        "uint64"
+      ],
+      "name": "farmer",
+      "type": "Farmers"
+    },
+    {
+      "index_type": "i64",
+      "keys_names": [
+        "currency"
+      ],
+      "keys_types": [
+        "uint64"
+      ],
+      "name": "dist",
+      "type": "Distributors"
+    },
+    {
+      "index_type": "i64",
+      "keys_names": [
+        "currency"
+      ],
+      "keys_types": [
+        "uint64"
+      ],
+      "name": "retailer",
+      "type": "Retailers"
+    },
+    {
+      "index_type": "i64",
+      "keys_names": [
+        "currency"
+      ],
+      "keys_types": [
+        "uint64"
+      ],
+      "name": "consumer",
+      "type": "Consumers"
+    },
+    {
+      "index_type": "i64",
+      "keys_names": [
+        "currency"
+      ],
+      "keys_types": [
+        "uint64"
+      ],
+      "name": "state",
+      "type": "States"
+    }
+  ]
+}
