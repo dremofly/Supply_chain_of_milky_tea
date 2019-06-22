@@ -2,7 +2,9 @@ import { Contract } from "ultrain-ts-lib/src/contract";
 import { RNAME, NAME } from "ultrain-ts-lib/src/account";
 import { Action } from "ultrain-ts-lib/src/action";
 import { Log } from "ultrain-ts-lib/src/log";
+import { Asset } from "ultrain-ts-lib/src/asset";
 
+import { env as action} from "ultrain-ts-lib/internal/action.d";
 // ==========================
 //	State的各种状态
 // ==========================
@@ -207,8 +209,20 @@ class SupplyChain extends Contract {
    ultrain_assert(temp.state == 3, "The item have not been for sale");
    temp.state = 4;
    temp.distributor = Action.sender;
-	//TODO: 如何传输货币
+   /*
    this.statesDB.modify(temp);	
+	//TODO: 如何传输货币
+	let from = Action.sender;
+	let to = temp.originFarmer;
+	//let bet: Asset = temp.price;
+	let bet = new Asset(temp.price);
+	let balance = Asset.balanceOf(from);
+	action.require_auth(from);
+	//Log.s("Test: ").s(RNAME(from)).flush();
+	ultrain_assert(balance.gte(bet), "your balance is not enough.");
+	balance.prints("balance from: ")
+	Asset.transfer(from, to, bet, "Buy the item.");
+	*/
   }
 
   @action

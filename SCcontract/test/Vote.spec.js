@@ -8,7 +8,7 @@ require("chai")
 
 describe("Tests", function() {
 	let creator = "ben";
-	let upc = 8;
+	let upc = 10;
 
 	//初始化
 	it("init", async () => {
@@ -133,12 +133,13 @@ describe("Tests", function() {
 		console.log(states.rows)
 
 	});
-	U3Utils.test.wait(3000);
+
 	it("buy", async () => {
 		config.keyProvider = "5JFz7EbcsCNHrDLuf9VpHtnLdepL4CcAEXu7AtSUYfcoiszursr";
 		const u3 = createU3(config);
 		await u3.transaction(creator, c => {
 			c.buy(upc, { authorization: [`jerry@active`] });
+			
 		 });
 
 		const statestable = "state";
@@ -152,7 +153,7 @@ describe("Tests", function() {
 		console.log(states.rows)
 
 	});
-	U3Utils.test.wait(3000);
+
 	it("ship", async () => {
 		config.keyProvider = "5JFz7EbcsCNHrDLuf9VpHtnLdepL4CcAEXu7AtSUYfcoiszursr";
 		const u3 = createU3(config);

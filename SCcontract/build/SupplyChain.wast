@@ -4692,10 +4692,6 @@
   local.get $2
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
   i64.store offset=24
-  local.get $0
-  i32.load offset=28
-  local.get $2
-  call $~lib/dbmanager/DBManager<States>#modify
  )
  (func $contract/SupplyChain/SupplyChain#ship (; 122 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
