@@ -20,35 +20,58 @@ import { env as action} from "ultrain-ts-lib/internal/action.d";
 class States implements Serializable {
 	@primaryid
 	upc: id_type;	// universal product code
-	//%TODO: 加入sku
+	sku: u64;
 	//sku: u64;	// Stock keeping unit
 	state: u32;
 	price: u32 = 0;
-	// owner: = 
+	productID: u64;	// sku + upc
+	owner: account_name;
+	productType: string; // tea, milk, or cassava
+	harvestTime: u64;	// unix timestamp
+	productInfo: string;	// 备注之类的
 	originFarmer: account_name = 0;
 	distributor: account_name = 0;
+	buyTime: u64;
+	shipTime: u64;
 	retailer: account_name = 0;
+	receiveTime: u64;
 	consumer: account_name = 0;
+	purchaseTime: u64;
+}
+
+// 评价
+class Evaluate implements Serializable {
+	@primaryid
+	name: account_name = 0;
+	rank: u32;
 }
 // Farmer
 class Farmers implements Serializable {
 	@primaryid
 	name: account_name = 0;
+	eval: Array<Evaluate>;
+	index: u32;
 }
 // Distributor
 class Distributors implements Serializable {
 	@primaryid
 	name: account_name = 0;
+	eval: Evaluate[];
+	index: u32;
 }
 // Retailer
 class Retailers implements Serializable {
 	@primaryid
 	name: account_name = 0;
+	eval: Evaluate[];
+	index: u32;
 }
 // Consumer
 class Consumers implements Serializable {
 	@primaryid
 	name: account_name = 0;
+	eval: Evaluate[];
+	index: u32;
 }
 
 const farmerstable = "farmer";
@@ -98,6 +121,8 @@ class SupplyChain extends Contract {
 
 	  let c = new Farmers();
 	  c.name = farmer;
+	  c.eval = [];
+	  c.index = 0;
 	  let existing = this.farmersDB.exists(farmer);
 	  if(!existing) {
 		  this.farmersDB.emplace(c);
@@ -112,6 +137,8 @@ class SupplyChain extends Contract {
 
 	let c = new Distributors();
 	c.name = distributor;
+	c.eval = [];
+	c.index = 0;
 	let existing = this.distributorsDB.exists(distributor);
 	if(!existing) {
 		this.distributorsDB.emplace(c);
@@ -126,6 +153,8 @@ class SupplyChain extends Contract {
 
 	let c = new Retailers();
 	c.name = retailer;
+	c.eval = [];
+	c.index = 0;
 	let existing = this.retailersDB.exists(retailer);
 	if(!existing) {
 		this.retailersDB.emplace(c);
@@ -140,6 +169,8 @@ class SupplyChain extends Contract {
 
 	let c = new Consumers();
 	c.name = consumer;
+	c.eval = [];
+	c.index = 0;
 	let existing = this.consumersDB.exists(consumer);
 	if(!existing) {
 		this.consumersDB.emplace(c);
@@ -148,15 +179,27 @@ class SupplyChain extends Contract {
 	}
   }
 
+  // 需要读取的输入有：
+  // upc, sku, productType, originFarmer, harvestTime, productInfo
   @action
-  harvest(upc: id_type): void {
+  harvest(upc: id_type, sku: u64, productType: string, productInfo: string, harvestTime: u64): void {
 	  // 判断是不是farmer
 	  //ultrain_assert(!this.farmersDB.exists(Action.sender), "Only farmers are allowed to call this action");
 	  ultrain_assert(!this.statesDB.exists(upc), "This upc has exist");
+	  // 修改upc，state，sku, productID, owner, productType,
+	  // harvestTime, productInfo
 	  let c = new States();
 	  c.upc = upc;
 	  c.state = 0;
+	  c.sku = sku;
 	  c.originFarmer = Action.sender;
+	  // TODO: 添加其他的改变
+	  c.harvestTime = harvestTime;
+	  c.owner = c.originFarmer;
+	  c.productType = productType;
+	  c.productInfo = productInfo;
+	  c.productID = sku + upc;
+
 	  this.statesDB.emplace(c);
   }
 
@@ -199,16 +242,20 @@ class SupplyChain extends Contract {
    this.statesDB.modify(temp);	
   }
 
+  // 改变owner, 添加buyTime
   @action
-  buy(upc: id_type): void {
+  buy(upc: id_type, buyTime: u64): void {
 	 // 判断是否是distributor 
 	 //ultrain_assert(!this.distributorsDB.exists(Action.sender), "Only distributors are allowed to call this action");
 	let temp = new States();
 	let ready = this.statesDB.get(upc, temp);
-	 ultrain_assert(ready, "This upc does not exist");
-   ultrain_assert(temp.state == 3, "The item have not been for sale");
-   temp.state = 4;
-   temp.distributor = Action.sender;
+	ultrain_assert(ready, "This upc does not exist");
+   	ultrain_assert(temp.state == 3, "The item have not been for sale");
+   	temp.state = 4;
+   	temp.distributor = Action.sender;
+   	temp.owner = temp.distributor;
+   	temp.buyTime = buyTime;
+   	this.statesDB.modify(temp);
    /*
    this.statesDB.modify(temp);	
 	//TODO: 如何传输货币
@@ -225,40 +272,47 @@ class SupplyChain extends Contract {
 	*/
   }
 
+  // ship
   @action
-  ship(upc: id_type): void {
+  ship(upc: id_type, shipTime: u64): void {
 	let temp = new States();
 	let ready = this.statesDB.get(upc, temp);
-	 ultrain_assert(ready, "This upc does not exist");
-   ultrain_assert(temp.state == 4, "The item have not been sold");
-   ultrain_assert(temp.distributor == Action.sender, "Not the distributor");
-   temp.state = 5;
-
-   this.statesDB.modify(temp);	
+	ultrain_assert(ready, "This upc does not exist");
+   	ultrain_assert(temp.state == 4, "The item have not been sold");
+   	ultrain_assert(temp.distributor == Action.sender, "Not the distributor");
+   	temp.state = 5;
+	temp.shipTime = shipTime;
+   	this.statesDB.modify(temp);	
   }
 
   // retailer
+  // 修改owner，添加receiveTime
   @action
-  receive(upc: id_type): void {
+  receive(upc: id_type, receiveTime: u64): void {
 	let temp = new States();
 	let ready = this.statesDB.get(upc, temp);
-	 ultrain_assert(ready, "This upc does not exist");
-   ultrain_assert(temp.state == 5, "The item have not been shipped:");
-   temp.state = 6;
+	ultrain_assert(ready, "This upc does not exist");
+   	ultrain_assert(temp.state == 5, "The item have not been shipped:");
+   	temp.state = 6;
 	temp.retailer = Action.sender;
-   this.statesDB.modify(temp);	
+	temp.owner = temp.retailer;
+	temp.receiveTime = receiveTime;
+
+   	this.statesDB.modify(temp);	
   }
 
   @action
-  purchase(upc: id_type): void {
+  purchase(upc: id_type, purchaseTime: u64): void {
 	let temp = new States();
 	let ready = this.statesDB.get(upc, temp);
-	 ultrain_assert(ready, "This upc does not exist");
-   ultrain_assert(temp.state == 6, "The item have not been received");
-   temp.consumer = Action.sender;
-   temp.state = 7;
+	ultrain_assert(ready, "This upc does not exist");
+   	ultrain_assert(temp.state == 6, "The item have not been received");
+   	temp.consumer = Action.sender;
+   	temp.state = 7;
+   	temp.owner = temp.consumer;
+   	temp.purchaseTime = purchaseTime;
 
-   this.statesDB.modify(temp);	
+   	this.statesDB.modify(temp);	
   }
 
   // 测试用
@@ -270,5 +324,25 @@ class SupplyChain extends Contract {
 		this.distributorsDB.erase(NAME("jerry"));
 		this.retailersDB.erase(NAME("tom"));
 		this.consumersDB.erase(NAME("bob"));
+  }
+
+  // rank
+  @action
+  rankFarmer(name: account_name, rank: u32): void {
+	let c = new Farmers();
+	let ready = this.farmersDB.get(name, c);
+	/*
+	let e = new Evaluate();
+	e.name = Action.sender;
+	e.rank = rank;
+	c.eval[c.index].name = Action.sender;
+	c.eval[c.index].rank = rank;
+	*/
+	let e = new Evaluate();
+	e.name = Action.sender;
+	e.rank = rank;
+	c.eval.push(e);
+	c.index = c.index + 1;
+	this.farmersDB.emplace(c);
   }
 }

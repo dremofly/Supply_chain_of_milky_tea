@@ -19,6 +19,7 @@
  (type $FUNCSIG$vij (func (param i32 i64)))
  (type $FUNCSIG$ijjjj (func (param i64 i64 i64 i64) (result i32)))
  (type $FUNCSIG$ijjjjii (func (param i64 i64 i64 i64 i32 i32) (result i32)))
+ (type $FUNCSIG$vijjiij (func (param i32 i64 i64 i32 i32 i64)))
  (type $FUNCSIG$vijii (func (param i32 i64 i32 i32)))
  (type $FUNCSIG$viji (func (param i32 i64 i32)))
  (import "env" "abort" (func $~lib/env/abort))
@@ -155,45 +156,56 @@
  (data (i32.const 2560) "\1b\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00t\00y\00p\00e\00d\00a\00r\00r\00a\00y\00.\00t\00s\00")
  (data (i32.const 2624) "\t\00\00\00a\00d\00d\00F\00a\00r\00m\00e\00r\00")
  (data (i32.const 2648) "\"\00\00\00O\00n\00l\00y\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00o\00w\00n\00e\00r\00 \00c\00a\00n\00 \00a\00d\00d\00 \00f\00a\00r\00m\00e\00r\00")
- (data (i32.const 2720) ".\00\00\00Y\00o\00u\00 \00h\00a\00v\00e\00 \00a\00l\00r\00e\00a\00d\00y\00 \00a\00d\00d\00e\00d\00 \00t\00h\00i\00s\00 \00a\00c\00c\00o\00u\00n\00t\00 \00a\00s\00 \00f\00a\00r\00m\00e\00r\00 \00")
- (data (i32.const 2816) "\0e\00\00\00a\00d\00d\00D\00i\00s\00t\00r\00i\00b\00u\00t\00o\00r\00")
- (data (i32.const 2848) "\'\00\00\00O\00n\00l\00y\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00o\00w\00n\00e\00r\00 \00c\00a\00n\00 \00a\00d\00d\00 \00d\00i\00s\00t\00r\00i\00b\00u\00t\00o\00r\00")
- (data (i32.const 2936) "2\00\00\00Y\00o\00u\00 \00h\00a\00v\00e\00 \00a\00l\00r\00e\00a\00d\00y\00 \00a\00d\00d\00e\00d\00 \00t\00h\00i\00s\00 \00a\00c\00c\00o\00u\00n\00t\00 \00a\00s\00 \00d\00i\00s\00t\00r\00i\00b\00u\00t\00o\00r\00")
- (data (i32.const 3040) "\0b\00\00\00a\00d\00d\00R\00e\00t\00a\00i\00l\00e\00r\00")
- (data (i32.const 3072) "$\00\00\00O\00n\00l\00y\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00o\00w\00n\00e\00r\00 \00c\00a\00n\00 \00a\00d\00d\00 \00r\00e\00t\00a\00i\00l\00e\00r\00")
- (data (i32.const 3152) "/\00\00\00Y\00o\00u\00 \00h\00a\00v\00e\00 \00a\00l\00r\00e\00a\00d\00y\00 \00a\00d\00d\00e\00d\00 \00t\00h\00i\00s\00 \00a\00c\00c\00o\00u\00n\00t\00 \00a\00s\00 \00r\00e\00t\00a\00i\00l\00e\00r\00")
- (data (i32.const 3256) "\0b\00\00\00a\00d\00d\00C\00o\00n\00s\00u\00m\00e\00r\00")
- (data (i32.const 3288) "$\00\00\00O\00n\00l\00y\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00o\00w\00n\00e\00r\00 \00c\00a\00n\00 \00a\00d\00d\00 \00c\00o\00n\00s\00u\00m\00e\00r\00")
- (data (i32.const 3368) "/\00\00\00Y\00o\00u\00 \00h\00a\00v\00e\00 \00a\00l\00r\00e\00a\00d\00y\00 \00a\00d\00d\00e\00d\00 \00t\00h\00i\00s\00 \00a\00c\00c\00o\00u\00n\00t\00 \00a\00s\00 \00c\00o\00n\00s\00u\00m\00e\00r\00")
- (data (i32.const 3472) "\07\00\00\00h\00a\00r\00v\00e\00s\00t\00")
- (data (i32.const 3496) "\12\00\00\00T\00h\00i\00s\00 \00u\00p\00c\00 \00h\00a\00s\00 \00e\00x\00i\00s\00t\00")
- (data (i32.const 3536) "\07\00\00\00p\00r\00o\00c\00e\00s\00s\00")
- (data (i32.const 3560) "\17\00\00\00T\00h\00i\00s\00 \00u\00p\00c\00 \00d\00o\00e\00s\00 \00n\00o\00t\00 \00e\00x\00i\00s\00t\00")
- (data (i32.const 3616) "!\00\00\00T\00h\00i\00s\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00h\00a\00r\00v\00e\00s\00t\00e\00d\00")
- (data (i32.const 3688) "\17\00\00\00N\00o\00t\00 \00t\00h\00e\00 \00o\00r\00i\00g\00i\00n\00a\00l\00 \00F\00a\00r\00m\00e\00r\00")
- (data (i32.const 3744) "7\00\00\00o\00b\00j\00e\00c\00t\00 \00p\00a\00s\00s\00e\00d\00 \00t\00o\00 \00m\00o\00d\00i\00f\00y\00 \00i\00s\00 \00n\00o\00t\00 \00f\00o\00u\00n\00d\00 \00i\00n\00 \00t\00h\00i\00s\00 \00D\00B\00M\00a\00n\00a\00g\00e\00r\00.\00")
- (data (i32.const 3864) "4\00\00\00c\00a\00n\00 \00n\00o\00t\00 \00m\00o\00d\00i\00f\00y\00 \00o\00b\00j\00e\00c\00t\00s\00 \00i\00n\00 \00t\00a\00b\00l\00e\00 \00o\00f\00 \00a\00n\00o\00t\00h\00e\00r\00 \00c\00o\00n\00t\00r\00a\00c\00t\00.\00")
- (data (i32.const 3976) "\04\00\00\00p\00a\00c\00k\00")
- (data (i32.const 3992) "!\00\00\00T\00h\00i\00s\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00p\00r\00o\00c\00e\00s\00s\00e\00d\00")
- (data (i32.const 4064) "\04\00\00\00s\00e\00l\00l\00")
- (data (i32.const 4080) "\1d\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00p\00a\00c\00k\00e\00d\00")
- (data (i32.const 4144) "\03\00\00\00b\00u\00y\00")
- (data (i32.const 4160) "\1f\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00f\00o\00r\00 \00s\00a\00l\00e\00")
- (data (i32.const 4232) "\04\00\00\00s\00h\00i\00p\00")
- (data (i32.const 4248) "\1b\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00s\00o\00l\00d\00")
- (data (i32.const 4312) "\13\00\00\00N\00o\00t\00 \00t\00h\00e\00 \00d\00i\00s\00t\00r\00i\00b\00u\00t\00o\00r\00")
- (data (i32.const 4360) "\07\00\00\00r\00e\00c\00e\00i\00v\00e\00")
- (data (i32.const 4384) "\1f\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00s\00h\00i\00p\00p\00e\00d\00:\00")
- (data (i32.const 4456) "\08\00\00\00p\00u\00r\00c\00h\00a\00s\00e\00")
- (data (i32.const 4480) "\1f\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00r\00e\00c\00e\00i\00v\00e\00d\00")
- (data (i32.const 4552) "\05\00\00\00e\00m\00p\00t\00y\00")
- (data (i32.const 4568) "\'\00\00\00O\00n\00l\00y\00 \00t\00h\00e\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00c\00r\00e\00a\00t\00o\00r\00 \00c\00a\00n\00 \00c\00a\00l\00l\00 \00t\00h\00i\00s\00")
- (data (i32.const 4656) "\05\00\00\00a\00l\00i\00c\00e\00")
- (data (i32.const 4672) "3\00\00\00c\00a\00n\00 \00n\00o\00t\00 \00e\00r\00a\00s\00e\00 \00o\00b\00j\00e\00c\00t\00s\00 \00i\00n\00 \00t\00a\00b\00l\00e\00 \00o\00f\00 \00a\00n\00o\00t\00h\00e\00r\00 \00c\00o\00n\00t\00r\00a\00c\00t\00.\00")
- (data (i32.const 4784) "\0b\00\00\00s\00u\00c\00c\00e\00s\00s\00f\00u\00l\001\00")
- (data (i32.const 4816) "\05\00\00\00j\00e\00r\00r\00y\00")
- (data (i32.const 4832) "\03\00\00\00t\00o\00m\00")
- (data (i32.const 4848) "\03\00\00\00b\00o\00b\00")
+ (data (i32.const 2720) "\00\00\00\00\00\00\00\00")
+ (data (i32.const 2728) "\a0\n\00\00\00\00\00\00")
+ (data (i32.const 2736) ".\00\00\00Y\00o\00u\00 \00h\00a\00v\00e\00 \00a\00l\00r\00e\00a\00d\00y\00 \00a\00d\00d\00e\00d\00 \00t\00h\00i\00s\00 \00a\00c\00c\00o\00u\00n\00t\00 \00a\00s\00 \00f\00a\00r\00m\00e\00r\00 \00")
+ (data (i32.const 2832) "\0e\00\00\00a\00d\00d\00D\00i\00s\00t\00r\00i\00b\00u\00t\00o\00r\00")
+ (data (i32.const 2864) "\'\00\00\00O\00n\00l\00y\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00o\00w\00n\00e\00r\00 \00c\00a\00n\00 \00a\00d\00d\00 \00d\00i\00s\00t\00r\00i\00b\00u\00t\00o\00r\00")
+ (data (i32.const 2952) "\00\00\00\00\00\00\00\00")
+ (data (i32.const 2960) "\88\0b\00\00\00\00\00\00")
+ (data (i32.const 2968) "2\00\00\00Y\00o\00u\00 \00h\00a\00v\00e\00 \00a\00l\00r\00e\00a\00d\00y\00 \00a\00d\00d\00e\00d\00 \00t\00h\00i\00s\00 \00a\00c\00c\00o\00u\00n\00t\00 \00a\00s\00 \00d\00i\00s\00t\00r\00i\00b\00u\00t\00o\00r\00")
+ (data (i32.const 3072) "\0b\00\00\00a\00d\00d\00R\00e\00t\00a\00i\00l\00e\00r\00")
+ (data (i32.const 3104) "$\00\00\00O\00n\00l\00y\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00o\00w\00n\00e\00r\00 \00c\00a\00n\00 \00a\00d\00d\00 \00r\00e\00t\00a\00i\00l\00e\00r\00")
+ (data (i32.const 3184) "\00\00\00\00\00\00\00\00")
+ (data (i32.const 3192) "p\0c\00\00\00\00\00\00")
+ (data (i32.const 3200) "/\00\00\00Y\00o\00u\00 \00h\00a\00v\00e\00 \00a\00l\00r\00e\00a\00d\00y\00 \00a\00d\00d\00e\00d\00 \00t\00h\00i\00s\00 \00a\00c\00c\00o\00u\00n\00t\00 \00a\00s\00 \00r\00e\00t\00a\00i\00l\00e\00r\00")
+ (data (i32.const 3304) "\0b\00\00\00a\00d\00d\00C\00o\00n\00s\00u\00m\00e\00r\00")
+ (data (i32.const 3336) "$\00\00\00O\00n\00l\00y\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00o\00w\00n\00e\00r\00 \00c\00a\00n\00 \00a\00d\00d\00 \00c\00o\00n\00s\00u\00m\00e\00r\00")
+ (data (i32.const 3416) "\00\00\00\00\00\00\00\00")
+ (data (i32.const 3424) "X\0d\00\00\00\00\00\00")
+ (data (i32.const 3432) "/\00\00\00Y\00o\00u\00 \00h\00a\00v\00e\00 \00a\00l\00r\00e\00a\00d\00y\00 \00a\00d\00d\00e\00d\00 \00t\00h\00i\00s\00 \00a\00c\00c\00o\00u\00n\00t\00 \00a\00s\00 \00c\00o\00n\00s\00u\00m\00e\00r\00")
+ (data (i32.const 3536) "\07\00\00\00h\00a\00r\00v\00e\00s\00t\00")
+ (data (i32.const 3560) "\00\00\00\00")
+ (data (i32.const 3568) "\17\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00s\00t\00r\00i\00n\00g\00.\00t\00s\00")
+ (data (i32.const 3624) "\12\00\00\00T\00h\00i\00s\00 \00u\00p\00c\00 \00h\00a\00s\00 \00e\00x\00i\00s\00t\00")
+ (data (i32.const 3664) "\07\00\00\00p\00r\00o\00c\00e\00s\00s\00")
+ (data (i32.const 3688) "\17\00\00\00T\00h\00i\00s\00 \00u\00p\00c\00 \00d\00o\00e\00s\00 \00n\00o\00t\00 \00e\00x\00i\00s\00t\00")
+ (data (i32.const 3744) "!\00\00\00T\00h\00i\00s\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00h\00a\00r\00v\00e\00s\00t\00e\00d\00")
+ (data (i32.const 3816) "\17\00\00\00N\00o\00t\00 \00t\00h\00e\00 \00o\00r\00i\00g\00i\00n\00a\00l\00 \00F\00a\00r\00m\00e\00r\00")
+ (data (i32.const 3872) "7\00\00\00o\00b\00j\00e\00c\00t\00 \00p\00a\00s\00s\00e\00d\00 \00t\00o\00 \00m\00o\00d\00i\00f\00y\00 \00i\00s\00 \00n\00o\00t\00 \00f\00o\00u\00n\00d\00 \00i\00n\00 \00t\00h\00i\00s\00 \00D\00B\00M\00a\00n\00a\00g\00e\00r\00.\00")
+ (data (i32.const 3992) "4\00\00\00c\00a\00n\00 \00n\00o\00t\00 \00m\00o\00d\00i\00f\00y\00 \00o\00b\00j\00e\00c\00t\00s\00 \00i\00n\00 \00t\00a\00b\00l\00e\00 \00o\00f\00 \00a\00n\00o\00t\00h\00e\00r\00 \00c\00o\00n\00t\00r\00a\00c\00t\00.\00")
+ (data (i32.const 4104) "\04\00\00\00p\00a\00c\00k\00")
+ (data (i32.const 4120) "!\00\00\00T\00h\00i\00s\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00p\00r\00o\00c\00e\00s\00s\00e\00d\00")
+ (data (i32.const 4192) "\04\00\00\00s\00e\00l\00l\00")
+ (data (i32.const 4208) "\1d\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00p\00a\00c\00k\00e\00d\00")
+ (data (i32.const 4272) "\03\00\00\00b\00u\00y\00")
+ (data (i32.const 4288) "\1f\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00f\00o\00r\00 \00s\00a\00l\00e\00")
+ (data (i32.const 4360) "\04\00\00\00s\00h\00i\00p\00")
+ (data (i32.const 4376) "\1b\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00s\00o\00l\00d\00")
+ (data (i32.const 4440) "\13\00\00\00N\00o\00t\00 \00t\00h\00e\00 \00d\00i\00s\00t\00r\00i\00b\00u\00t\00o\00r\00")
+ (data (i32.const 4488) "\07\00\00\00r\00e\00c\00e\00i\00v\00e\00")
+ (data (i32.const 4512) "\1f\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00s\00h\00i\00p\00p\00e\00d\00:\00")
+ (data (i32.const 4584) "\08\00\00\00p\00u\00r\00c\00h\00a\00s\00e\00")
+ (data (i32.const 4608) "\1f\00\00\00T\00h\00e\00 \00i\00t\00e\00m\00 \00h\00a\00v\00e\00 \00n\00o\00t\00 \00b\00e\00e\00n\00 \00r\00e\00c\00e\00i\00v\00e\00d\00")
+ (data (i32.const 4680) "\05\00\00\00e\00m\00p\00t\00y\00")
+ (data (i32.const 4696) "\'\00\00\00O\00n\00l\00y\00 \00t\00h\00e\00 \00c\00o\00n\00t\00r\00a\00c\00t\00 \00c\00r\00e\00a\00t\00o\00r\00 \00c\00a\00n\00 \00c\00a\00l\00l\00 \00t\00h\00i\00s\00")
+ (data (i32.const 4784) "\05\00\00\00a\00l\00i\00c\00e\00")
+ (data (i32.const 4800) "3\00\00\00c\00a\00n\00 \00n\00o\00t\00 \00e\00r\00a\00s\00e\00 \00o\00b\00j\00e\00c\00t\00s\00 \00i\00n\00 \00t\00a\00b\00l\00e\00 \00o\00f\00 \00a\00n\00o\00t\00h\00e\00r\00 \00c\00o\00n\00t\00r\00a\00c\00t\00.\00")
+ (data (i32.const 4912) "\0b\00\00\00s\00u\00c\00c\00e\00s\00s\00f\00u\00l\001\00")
+ (data (i32.const 4944) "\05\00\00\00j\00e\00r\00r\00y\00")
+ (data (i32.const 4960) "\03\00\00\00t\00o\00m\00")
+ (data (i32.const 4976) "\03\00\00\00b\00o\00b\00")
+ (data (i32.const 4992) "\n\00\00\00r\00a\00n\00k\00F\00a\00r\00m\00e\00r\00")
  (table $0 1 funcref)
  (elem (i32.const 0) $null)
  (global $~lib/allocator/arena/startOffset (mut i32) (i32.const 0))
@@ -217,7 +229,7 @@
  (global $contract/SupplyChain/statestable i32 (i32.const 2312))
  (global $contract/SupplyChain/statesscope i32 (i32.const 2328))
  (global $~lib/datastream/HEADER_SIZE i32 (i32.const 4))
- (global $~lib/memory/HEAP_BASE i32 (i32.const 4860))
+ (global $~lib/memory/HEAP_BASE i32 (i32.const 5016))
  (export "memory" (memory $0))
  (export "table" (table $0))
  (export "apply" (func $contract/SupplyChain/apply))
@@ -3659,13 +3671,19 @@
   local.get $0
   i32.eqz
   if
-   i32.const 8
+   i32.const 16
    call $~lib/memory/memory.allocate
    local.set $0
   end
   local.get $0
   i64.const 0
   i64.store
+  local.get $0
+  i32.const 0
+  i32.store offset=8
+  local.get $0
+  i32.const 0
+  i32.store offset=12
   local.get $0
  )
  (func $~lib/dbmanager/DBManager<Farmers>#find (; 71 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
@@ -3722,13 +3740,174 @@
   i32.add
   i32.store offset=8
  )
- (func $contract/SupplyChain/Farmers#serialize (; 75 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/datastream/DataStream#write<u8> (; 75 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  local.get $0
+  call $~lib/datastream/DataStream#isMeasureMode
+  i32.eqz
+  if
+   local.get $0
+   i32.load
+   local.get $0
+   i32.load offset=8
+   i32.add
+   local.get $1
+   i32.store8
+  end
+  local.get $0
+  local.get $0
+  i32.load offset=8
+  i32.const 1
+  i32.add
+  i32.store offset=8
+ )
+ (func $~lib/datastream/DataStream#writeVarint32 (; 76 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  loop $continue|0
+   block
+    local.get $1
+    i32.const 127
+    i32.and
+    local.set $2
+    local.get $1
+    i32.const 7
+    i32.shr_u
+    local.set $1
+    local.get $2
+    local.get $1
+    i32.const 0
+    i32.gt_u
+    if (result i32)
+     i32.const 1
+    else     
+     i32.const 0
+    end
+    i32.const 7
+    i32.shl
+    i32.or
+    local.set $2
+    local.get $0
+    local.get $2
+    call $~lib/datastream/DataStream#write<u8>
+   end
+   local.get $1
+   br_if $continue|0
+  end
+ )
+ (func $~lib/array/Array<Evaluate>#__get (; 77 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  local.get $0
+  i32.load
+  local.set $2
+  local.get $1
+  local.get $2
+  i32.load
+  i32.const 2
+  i32.shr_u
+  i32.lt_u
+  if (result i32)
+   local.get $2
+   local.set $3
+   local.get $1
+   local.set $4
+   i32.const 0
+   local.set $5
+   local.get $3
+   local.get $4
+   i32.const 2
+   i32.shl
+   i32.add
+   local.get $5
+   i32.add
+   i32.load offset=8
+  else   
+   unreachable
+  end
+ )
+ (func $~lib/datastream/DataStream#write<u32> (; 78 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  local.get $0
+  call $~lib/datastream/DataStream#isMeasureMode
+  i32.eqz
+  if
+   local.get $0
+   i32.load
+   local.get $0
+   i32.load offset=8
+   i32.add
+   local.get $1
+   i32.store
+  end
+  local.get $0
+  local.get $0
+  i32.load offset=8
+  i32.const 4
+  i32.add
+  i32.store offset=8
+ )
+ (func $contract/SupplyChain/Evaluate#serialize (; 79 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   local.get $0
   i64.load
   call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i32.load offset=8
+  call $~lib/datastream/DataStream#write<u32>
  )
- (func $~lib/datastream/DataStream.measure<Farmers> (; 76 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/datastream/DataStream#writeComplexVector<Evaluate> (; 80 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  block $~lib/array/Array<Evaluate>#get:length|inlined.0 (result i32)
+   local.get $1
+   local.set $2
+   local.get $2
+   i32.load offset=4
+  end
+  local.set $2
+  local.get $0
+  local.get $2
+  call $~lib/datastream/DataStream#writeVarint32
+  block $break|0
+   i32.const 0
+   local.set $3
+   loop $repeat|0
+    local.get $3
+    local.get $2
+    i32.lt_u
+    i32.eqz
+    br_if $break|0
+    local.get $1
+    local.get $3
+    call $~lib/array/Array<Evaluate>#__get
+    local.get $0
+    call $contract/SupplyChain/Evaluate#serialize
+    local.get $3
+    i32.const 1
+    i32.add
+    local.set $3
+    br $repeat|0
+    unreachable
+   end
+   unreachable
+  end
+ )
+ (func $contract/SupplyChain/Farmers#serialize (; 81 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  local.get $1
+  local.get $0
+  i64.load
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i32.load offset=8
+  call $~lib/datastream/DataStream#writeComplexVector<Evaluate>
+  local.get $1
+  local.get $0
+  i32.load offset=12
+  call $~lib/datastream/DataStream#write<u32>
+ )
+ (func $~lib/datastream/DataStream.measure<Farmers> (; 82 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   i32.const 0
   i32.const 0
@@ -3741,11 +3920,11 @@
   local.get $1
   i32.load offset=8
  )
- (func $contract/SupplyChain/Farmers#primaryKey (; 77 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
+ (func $contract/SupplyChain/Farmers#primaryKey (; 83 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
   local.get $0
   i64.load
  )
- (func $~lib/dbmanager/DBManager<Farmers>#emplace (; 78 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/dbmanager/DBManager<Farmers>#emplace (; 84 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -3783,7 +3962,7 @@
   call $~lib/env/db_store_i64
   drop
  )
- (func $contract/SupplyChain/SupplyChain#addFarmer (; 79 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $contract/SupplyChain/SupplyChain#addFarmer (; 85 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (local $3 i32)
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
@@ -3798,6 +3977,12 @@
   local.get $2
   local.get $1
   i64.store
+  local.get $2
+  i32.const 2728
+  i32.store offset=8
+  local.get $2
+  i32.const 0
+  i32.store offset=12
   local.get $0
   i32.load offset=12
   local.get $1
@@ -3812,15 +3997,15 @@
    call $~lib/dbmanager/DBManager<Farmers>#emplace
   else   
    i32.const 0
-   i32.const 2720
+   i32.const 2736
    call $~lib/env/ultrain_assert
   end
  )
- (func $contract/SupplyChain/Distributors#constructor (; 80 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $contract/SupplyChain/Distributors#constructor (; 86 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
-   i32.const 8
+   i32.const 16
    call $~lib/memory/memory.allocate
    local.set $0
   end
@@ -3828,8 +4013,14 @@
   i64.const 0
   i64.store
   local.get $0
+  i32.const 0
+  i32.store offset=8
+  local.get $0
+  i32.const 0
+  i32.store offset=12
+  local.get $0
  )
- (func $~lib/dbmanager/DBManager<Distributors>#find (; 81 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/dbmanager/DBManager<Distributors>#find (; 87 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   local.get $0
   i64.load offset=8
@@ -3842,7 +4033,7 @@
   local.set $2
   local.get $2
  )
- (func $~lib/dbmanager/DBManager<Distributors>#exists (; 82 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/dbmanager/DBManager<Distributors>#exists (; 88 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   local.get $0
   local.get $1
@@ -3857,13 +4048,21 @@
    i32.const 1
   end
  )
- (func $contract/SupplyChain/Distributors#serialize (; 83 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $contract/SupplyChain/Distributors#serialize (; 89 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   local.get $0
   i64.load
   call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i32.load offset=8
+  call $~lib/datastream/DataStream#writeComplexVector<Evaluate>
+  local.get $1
+  local.get $0
+  i32.load offset=12
+  call $~lib/datastream/DataStream#write<u32>
  )
- (func $~lib/datastream/DataStream.measure<Distributors> (; 84 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/datastream/DataStream.measure<Distributors> (; 90 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   i32.const 0
   i32.const 0
@@ -3876,11 +4075,11 @@
   local.get $1
   i32.load offset=8
  )
- (func $contract/SupplyChain/Distributors#primaryKey (; 85 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
+ (func $contract/SupplyChain/Distributors#primaryKey (; 91 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
   local.get $0
   i64.load
  )
- (func $~lib/dbmanager/DBManager<Distributors>#emplace (; 86 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/dbmanager/DBManager<Distributors>#emplace (; 92 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -3918,14 +4117,14 @@
   call $~lib/env/db_store_i64
   drop
  )
- (func $contract/SupplyChain/SupplyChain#addDistributor (; 87 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $contract/SupplyChain/SupplyChain#addDistributor (; 93 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (local $3 i32)
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
   local.get $0
   call $~lib/ultrain-ts-lib/src/contract/Contract#get:receiver
   i64.eq
-  i32.const 2848
+  i32.const 2864
   call $~lib/env/ultrain_assert
   i32.const 0
   call $contract/SupplyChain/Distributors#constructor
@@ -3933,6 +4132,12 @@
   local.get $2
   local.get $1
   i64.store
+  local.get $2
+  i32.const 2960
+  i32.store offset=8
+  local.get $2
+  i32.const 0
+  i32.store offset=12
   local.get $0
   i32.load offset=16
   local.get $1
@@ -3947,15 +4152,15 @@
    call $~lib/dbmanager/DBManager<Distributors>#emplace
   else   
    i32.const 0
-   i32.const 2936
+   i32.const 2968
    call $~lib/env/ultrain_assert
   end
  )
- (func $contract/SupplyChain/Retailers#constructor (; 88 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $contract/SupplyChain/Retailers#constructor (; 94 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
-   i32.const 8
+   i32.const 16
    call $~lib/memory/memory.allocate
    local.set $0
   end
@@ -3963,8 +4168,14 @@
   i64.const 0
   i64.store
   local.get $0
+  i32.const 0
+  i32.store offset=8
+  local.get $0
+  i32.const 0
+  i32.store offset=12
+  local.get $0
  )
- (func $~lib/dbmanager/DBManager<Retailers>#find (; 89 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/dbmanager/DBManager<Retailers>#find (; 95 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   local.get $0
   i64.load offset=8
@@ -3977,7 +4188,7 @@
   local.set $2
   local.get $2
  )
- (func $~lib/dbmanager/DBManager<Retailers>#exists (; 90 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/dbmanager/DBManager<Retailers>#exists (; 96 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   local.get $0
   local.get $1
@@ -3992,13 +4203,21 @@
    i32.const 1
   end
  )
- (func $contract/SupplyChain/Retailers#serialize (; 91 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $contract/SupplyChain/Retailers#serialize (; 97 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   local.get $0
   i64.load
   call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i32.load offset=8
+  call $~lib/datastream/DataStream#writeComplexVector<Evaluate>
+  local.get $1
+  local.get $0
+  i32.load offset=12
+  call $~lib/datastream/DataStream#write<u32>
  )
- (func $~lib/datastream/DataStream.measure<Retailers> (; 92 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/datastream/DataStream.measure<Retailers> (; 98 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   i32.const 0
   i32.const 0
@@ -4011,11 +4230,11 @@
   local.get $1
   i32.load offset=8
  )
- (func $contract/SupplyChain/Retailers#primaryKey (; 93 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
+ (func $contract/SupplyChain/Retailers#primaryKey (; 99 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
   local.get $0
   i64.load
  )
- (func $~lib/dbmanager/DBManager<Retailers>#emplace (; 94 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/dbmanager/DBManager<Retailers>#emplace (; 100 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -4053,14 +4272,14 @@
   call $~lib/env/db_store_i64
   drop
  )
- (func $contract/SupplyChain/SupplyChain#addRetailer (; 95 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $contract/SupplyChain/SupplyChain#addRetailer (; 101 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (local $3 i32)
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
   local.get $0
   call $~lib/ultrain-ts-lib/src/contract/Contract#get:receiver
   i64.eq
-  i32.const 3072
+  i32.const 3104
   call $~lib/env/ultrain_assert
   i32.const 0
   call $contract/SupplyChain/Retailers#constructor
@@ -4068,6 +4287,12 @@
   local.get $2
   local.get $1
   i64.store
+  local.get $2
+  i32.const 3192
+  i32.store offset=8
+  local.get $2
+  i32.const 0
+  i32.store offset=12
   local.get $0
   i32.load offset=20
   local.get $1
@@ -4082,15 +4307,15 @@
    call $~lib/dbmanager/DBManager<Retailers>#emplace
   else   
    i32.const 0
-   i32.const 3152
+   i32.const 3200
    call $~lib/env/ultrain_assert
   end
  )
- (func $contract/SupplyChain/Consumers#constructor (; 96 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $contract/SupplyChain/Consumers#constructor (; 102 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
-   i32.const 8
+   i32.const 16
    call $~lib/memory/memory.allocate
    local.set $0
   end
@@ -4098,8 +4323,14 @@
   i64.const 0
   i64.store
   local.get $0
+  i32.const 0
+  i32.store offset=8
+  local.get $0
+  i32.const 0
+  i32.store offset=12
+  local.get $0
  )
- (func $~lib/dbmanager/DBManager<Consumers>#find (; 97 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/dbmanager/DBManager<Consumers>#find (; 103 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   local.get $0
   i64.load offset=8
@@ -4112,7 +4343,7 @@
   local.set $2
   local.get $2
  )
- (func $~lib/dbmanager/DBManager<Consumers>#exists (; 98 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/dbmanager/DBManager<Consumers>#exists (; 104 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   local.get $0
   local.get $1
@@ -4127,13 +4358,21 @@
    i32.const 1
   end
  )
- (func $contract/SupplyChain/Consumers#serialize (; 99 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $contract/SupplyChain/Consumers#serialize (; 105 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   local.get $0
   i64.load
   call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i32.load offset=8
+  call $~lib/datastream/DataStream#writeComplexVector<Evaluate>
+  local.get $1
+  local.get $0
+  i32.load offset=12
+  call $~lib/datastream/DataStream#write<u32>
  )
- (func $~lib/datastream/DataStream.measure<Consumers> (; 100 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/datastream/DataStream.measure<Consumers> (; 106 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   i32.const 0
   i32.const 0
@@ -4146,11 +4385,11 @@
   local.get $1
   i32.load offset=8
  )
- (func $contract/SupplyChain/Consumers#primaryKey (; 101 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
+ (func $contract/SupplyChain/Consumers#primaryKey (; 107 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
   local.get $0
   i64.load
  )
- (func $~lib/dbmanager/DBManager<Consumers>#emplace (; 102 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/dbmanager/DBManager<Consumers>#emplace (; 108 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -4188,14 +4427,14 @@
   call $~lib/env/db_store_i64
   drop
  )
- (func $contract/SupplyChain/SupplyChain#addConsumer (; 103 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $contract/SupplyChain/SupplyChain#addConsumer (; 109 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (local $3 i32)
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
   local.get $0
   call $~lib/ultrain-ts-lib/src/contract/Contract#get:receiver
   i64.eq
-  i32.const 3288
+  i32.const 3336
   call $~lib/env/ultrain_assert
   i32.const 0
   call $contract/SupplyChain/Consumers#constructor
@@ -4203,6 +4442,12 @@
   local.get $2
   local.get $1
   i64.store
+  local.get $2
+  i32.const 3424
+  i32.store offset=8
+  local.get $2
+  i32.const 0
+  i32.store offset=12
   local.get $0
   i32.load offset=24
   local.get $1
@@ -4217,11 +4462,465 @@
    call $~lib/dbmanager/DBManager<Consumers>#emplace
   else   
    i32.const 0
-   i32.const 3368
+   i32.const 3432
    call $~lib/env/ultrain_assert
   end
  )
- (func $~lib/dbmanager/DBManager<States>#find (; 104 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/datastream/DataStream#read<u8> (; 110 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  (local $1 i32)
+  local.get $0
+  i32.load
+  local.get $0
+  i32.load offset=8
+  i32.add
+  i32.load8_u
+  local.set $1
+  local.get $0
+  local.get $0
+  i32.load offset=8
+  i32.const 1
+  i32.add
+  i32.store offset=8
+  local.get $1
+ )
+ (func $~lib/datastream/DataStream#readVarint32 (; 111 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  i32.const 0
+  local.set $1
+  i32.const 0
+  local.set $2
+  block $break|0
+   loop $continue|0
+    block
+     local.get $0
+     call $~lib/datastream/DataStream#read<u8>
+     local.set $3
+     local.get $1
+     local.get $3
+     i32.const 127
+     i32.and
+     i32.const 7
+     block (result i32)
+      local.get $2
+      local.tee $4
+      i32.const 1
+      i32.add
+      local.set $2
+      local.get $4
+     end
+     i32.mul
+     i32.shl
+     i32.or
+     local.set $1
+    end
+    local.get $3
+    i32.const 128
+    i32.and
+    br_if $continue|0
+   end
+  end
+  local.get $1
+ )
+ (func $~lib/internal/string/allocateUnsafe (; 112 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  local.get $0
+  i32.const 0
+  i32.gt_s
+  local.tee $1
+  if (result i32)
+   local.get $0
+   i32.const 536870910
+   i32.le_s
+  else   
+   local.get $1
+  end
+  i32.eqz
+  if
+   call $~lib/env/abort
+   unreachable
+  end
+  block $~lib/memory/memory.allocate|inlined.2 (result i32)
+   i32.const 4
+   local.get $0
+   i32.const 1
+   i32.shl
+   i32.add
+   local.set $1
+   local.get $1
+   call $~lib/allocator/arena/__memory_allocate
+   br $~lib/memory/memory.allocate|inlined.2
+  end
+  local.set $2
+  local.get $2
+  local.get $0
+  i32.store
+  local.get $2
+ )
+ (func $~lib/string/String.fromUTF8 (; 113 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i32)
+  local.get $1
+  i32.const 1
+  i32.lt_u
+  if
+   i32.const 3560
+   return
+  end
+  i32.const 0
+  local.set $2
+  block $~lib/memory/memory.allocate|inlined.1 (result i32)
+   local.get $1
+   i32.const 1
+   i32.shl
+   local.set $3
+   local.get $3
+   call $~lib/allocator/arena/__memory_allocate
+   br $~lib/memory/memory.allocate|inlined.1
+  end
+  local.set $4
+  i32.const 0
+  local.set $5
+  block $break|0
+   loop $continue|0
+    local.get $2
+    local.get $1
+    i32.lt_u
+    if
+     block
+      local.get $0
+      block (result i32)
+       local.get $2
+       local.tee $3
+       i32.const 1
+       i32.add
+       local.set $2
+       local.get $3
+      end
+      i32.add
+      i32.load8_u
+      local.set $3
+      local.get $3
+      i32.const 128
+      i32.lt_u
+      if
+       local.get $4
+       local.get $5
+       i32.add
+       local.get $3
+       i32.store16
+       local.get $5
+       i32.const 2
+       i32.add
+       local.set $5
+      else       
+       local.get $3
+       i32.const 191
+       i32.gt_u
+       local.tee $6
+       if (result i32)
+        local.get $3
+        i32.const 224
+        i32.lt_u
+       else        
+        local.get $6
+       end
+       if
+        local.get $2
+        i32.const 1
+        i32.add
+        local.get $1
+        i32.le_u
+        i32.eqz
+        if
+         call $~lib/env/abort
+         unreachable
+        end
+        local.get $4
+        local.get $5
+        i32.add
+        local.get $3
+        i32.const 31
+        i32.and
+        i32.const 6
+        i32.shl
+        local.get $0
+        block (result i32)
+         local.get $2
+         local.tee $6
+         i32.const 1
+         i32.add
+         local.set $2
+         local.get $6
+        end
+        i32.add
+        i32.load8_u
+        i32.const 63
+        i32.and
+        i32.or
+        i32.store16
+        local.get $5
+        i32.const 2
+        i32.add
+        local.set $5
+       else        
+        local.get $3
+        i32.const 239
+        i32.gt_u
+        local.tee $6
+        if (result i32)
+         local.get $3
+         i32.const 365
+         i32.lt_u
+        else         
+         local.get $6
+        end
+        if
+         local.get $2
+         i32.const 3
+         i32.add
+         local.get $1
+         i32.le_u
+         i32.eqz
+         if
+          call $~lib/env/abort
+          unreachable
+         end
+         local.get $3
+         i32.const 7
+         i32.and
+         i32.const 18
+         i32.shl
+         local.get $0
+         block (result i32)
+          local.get $2
+          local.tee $6
+          i32.const 1
+          i32.add
+          local.set $2
+          local.get $6
+         end
+         i32.add
+         i32.load8_u
+         i32.const 63
+         i32.and
+         i32.const 12
+         i32.shl
+         i32.or
+         local.get $0
+         block (result i32)
+          local.get $2
+          local.tee $6
+          i32.const 1
+          i32.add
+          local.set $2
+          local.get $6
+         end
+         i32.add
+         i32.load8_u
+         i32.const 63
+         i32.and
+         i32.const 6
+         i32.shl
+         i32.or
+         local.get $0
+         block (result i32)
+          local.get $2
+          local.tee $6
+          i32.const 1
+          i32.add
+          local.set $2
+          local.get $6
+         end
+         i32.add
+         i32.load8_u
+         i32.const 63
+         i32.and
+         i32.or
+         i32.const 65536
+         i32.sub
+         local.set $3
+         local.get $4
+         local.get $5
+         i32.add
+         i32.const 55296
+         local.get $3
+         i32.const 10
+         i32.shr_u
+         i32.add
+         i32.store16
+         local.get $5
+         i32.const 2
+         i32.add
+         local.set $5
+         local.get $4
+         local.get $5
+         i32.add
+         i32.const 56320
+         local.get $3
+         i32.const 1023
+         i32.and
+         i32.add
+         i32.store16
+         local.get $5
+         i32.const 2
+         i32.add
+         local.set $5
+        else         
+         local.get $2
+         i32.const 2
+         i32.add
+         local.get $1
+         i32.le_u
+         i32.eqz
+         if
+          call $~lib/env/abort
+          unreachable
+         end
+         local.get $4
+         local.get $5
+         i32.add
+         local.get $3
+         i32.const 15
+         i32.and
+         i32.const 12
+         i32.shl
+         local.get $0
+         block (result i32)
+          local.get $2
+          local.tee $6
+          i32.const 1
+          i32.add
+          local.set $2
+          local.get $6
+         end
+         i32.add
+         i32.load8_u
+         i32.const 63
+         i32.and
+         i32.const 6
+         i32.shl
+         i32.or
+         local.get $0
+         block (result i32)
+          local.get $2
+          local.tee $6
+          i32.const 1
+          i32.add
+          local.set $2
+          local.get $6
+         end
+         i32.add
+         i32.load8_u
+         i32.const 63
+         i32.and
+         i32.or
+         i32.store16
+         local.get $5
+         i32.const 2
+         i32.add
+         local.set $5
+        end
+       end
+      end
+     end
+     br $continue|0
+    end
+   end
+  end
+  local.get $2
+  local.get $1
+  i32.eq
+  i32.eqz
+  if
+   call $~lib/env/abort
+   unreachable
+  end
+  local.get $5
+  i32.const 1
+  i32.shr_u
+  call $~lib/internal/string/allocateUnsafe
+  local.set $7
+  block $~lib/memory/memory.copy|inlined.2
+   local.get $7
+   i32.const 4
+   i32.add
+   local.set $3
+   local.get $4
+   local.set $6
+   local.get $5
+   local.set $8
+   local.get $3
+   local.get $6
+   local.get $8
+   call $~lib/internal/memory/memmove
+  end
+  block $~lib/memory/memory.free|inlined.1
+   local.get $4
+   local.set $8
+   local.get $8
+   call $~lib/allocator/arena/__memory_free
+   br $~lib/memory/memory.free|inlined.1
+  end
+  local.get $7
+ )
+ (func $~lib/datastream/DataStream#readString (; 114 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  local.get $0
+  call $~lib/datastream/DataStream#readVarint32
+  local.set $1
+  local.get $1
+  i32.const 0
+  i32.eq
+  if
+   i32.const 3560
+   return
+  end
+  i32.const 0
+  local.get $1
+  call $~lib/typedarray/Uint8Array#constructor
+  local.set $2
+  block $~lib/memory/memory.copy|inlined.1
+   local.get $2
+   i32.load
+   local.set $3
+   local.get $0
+   i32.load
+   local.get $0
+   i32.load offset=8
+   i32.add
+   local.set $4
+   local.get $1
+   local.set $5
+   local.get $3
+   local.get $4
+   local.get $5
+   call $~lib/internal/memory/memmove
+  end
+  local.get $0
+  local.get $0
+  i32.load offset=8
+  local.get $1
+  i32.add
+  i32.store offset=8
+  local.get $2
+  i32.load
+  local.get $1
+  call $~lib/string/String.fromUTF8
+ )
+ (func $~lib/dbmanager/DBManager<States>#find (; 115 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   local.get $0
   i64.load offset=8
@@ -4234,7 +4933,7 @@
   local.set $2
   local.get $2
  )
- (func $~lib/dbmanager/DBManager<States>#exists (; 105 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/dbmanager/DBManager<States>#exists (; 116 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   local.get $0
   local.get $1
@@ -4249,11 +4948,11 @@
    i32.const 1
   end
  )
- (func $contract/SupplyChain/States#constructor (; 106 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $contract/SupplyChain/States#constructor (; 117 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
-   i32.const 48
+   i32.const 128
    call $~lib/memory/memory.allocate
    local.set $0
   end
@@ -4261,14 +4960,14 @@
   i64.const 0
   i64.store
   local.get $0
-  i32.const 0
-  i32.store offset=8
-  local.get $0
-  i32.const 0
-  i32.store offset=12
-  local.get $0
   i64.const 0
-  i64.store offset=16
+  i64.store offset=8
+  local.get $0
+  i32.const 0
+  i32.store offset=16
+  local.get $0
+  i32.const 0
+  i32.store offset=20
   local.get $0
   i64.const 0
   i64.store offset=24
@@ -4276,47 +4975,443 @@
   i64.const 0
   i64.store offset=32
   local.get $0
+  i32.const 0
+  i32.store offset=40
+  local.get $0
   i64.const 0
-  i64.store offset=40
+  i64.store offset=48
+  local.get $0
+  i32.const 0
+  i32.store offset=56
+  local.get $0
+  i64.const 0
+  i64.store offset=64
+  local.get $0
+  i64.const 0
+  i64.store offset=72
+  local.get $0
+  i64.const 0
+  i64.store offset=80
+  local.get $0
+  i64.const 0
+  i64.store offset=88
+  local.get $0
+  i64.const 0
+  i64.store offset=96
+  local.get $0
+  i64.const 0
+  i64.store offset=104
+  local.get $0
+  i64.const 0
+  i64.store offset=112
+  local.get $0
+  i64.const 0
+  i64.store offset=120
   local.get $0
  )
- (func $~lib/datastream/DataStream#write<u32> (; 107 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/string/String#get:lengthUTF8 (; 118 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  i32.const 1
+  local.set $1
+  i32.const 0
+  local.set $2
+  local.get $0
+  i32.load
+  local.set $3
+  block $break|0
+   loop $continue|0
+    local.get $2
+    local.get $3
+    i32.lt_u
+    if
+     block
+      local.get $0
+      local.get $2
+      i32.const 1
+      i32.shl
+      i32.add
+      i32.load16_u offset=4
+      local.set $4
+      local.get $4
+      i32.const 128
+      i32.lt_u
+      if
+       local.get $1
+       i32.const 1
+       i32.add
+       local.set $1
+       local.get $2
+       i32.const 1
+       i32.add
+       local.set $2
+      else       
+       local.get $4
+       i32.const 2048
+       i32.lt_u
+       if
+        local.get $1
+        i32.const 2
+        i32.add
+        local.set $1
+        local.get $2
+        i32.const 1
+        i32.add
+        local.set $2
+       else        
+        local.get $4
+        i32.const 64512
+        i32.and
+        i32.const 55296
+        i32.eq
+        local.tee $5
+        if (result i32)
+         local.get $2
+         i32.const 1
+         i32.add
+         local.get $3
+         i32.lt_u
+        else         
+         local.get $5
+        end
+        local.tee $5
+        if (result i32)
+         local.get $0
+         local.get $2
+         i32.const 1
+         i32.add
+         i32.const 1
+         i32.shl
+         i32.add
+         i32.load16_u offset=4
+         i32.const 64512
+         i32.and
+         i32.const 56320
+         i32.eq
+        else         
+         local.get $5
+        end
+        if
+         local.get $1
+         i32.const 4
+         i32.add
+         local.set $1
+         local.get $2
+         i32.const 2
+         i32.add
+         local.set $2
+        else         
+         local.get $1
+         i32.const 3
+         i32.add
+         local.set $1
+         local.get $2
+         i32.const 1
+         i32.add
+         local.set $2
+        end
+       end
+      end
+     end
+     br $continue|0
+    end
+   end
+  end
+  local.get $1
+ )
+ (func $~lib/string/String#toUTF8 (; 119 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  block $~lib/memory/memory.allocate|inlined.3 (result i32)
+   local.get $0
+   call $~lib/string/String#get:lengthUTF8
+   local.set $1
+   local.get $1
+   call $~lib/allocator/arena/__memory_allocate
+   br $~lib/memory/memory.allocate|inlined.3
+  end
+  local.set $2
+  i32.const 0
+  local.set $3
+  local.get $0
+  i32.load
+  local.set $4
+  i32.const 0
+  local.set $5
+  block $break|0
+   loop $continue|0
+    local.get $3
+    local.get $4
+    i32.lt_u
+    if
+     block
+      local.get $0
+      local.get $3
+      i32.const 1
+      i32.shl
+      i32.add
+      i32.load16_u offset=4
+      local.set $1
+      local.get $1
+      i32.const 128
+      i32.lt_u
+      if
+       local.get $2
+       local.get $5
+       i32.add
+       local.get $1
+       i32.store8
+       local.get $5
+       i32.const 1
+       i32.add
+       local.set $5
+       local.get $3
+       i32.const 1
+       i32.add
+       local.set $3
+      else       
+       local.get $1
+       i32.const 2048
+       i32.lt_u
+       if
+        local.get $2
+        local.get $5
+        i32.add
+        local.set $6
+        local.get $6
+        local.get $1
+        i32.const 6
+        i32.shr_u
+        i32.const 192
+        i32.or
+        i32.store8
+        local.get $6
+        local.get $1
+        i32.const 63
+        i32.and
+        i32.const 128
+        i32.or
+        i32.store8 offset=1
+        local.get $5
+        i32.const 2
+        i32.add
+        local.set $5
+        local.get $3
+        i32.const 1
+        i32.add
+        local.set $3
+       else        
+        local.get $2
+        local.get $5
+        i32.add
+        local.set $6
+        local.get $1
+        i32.const 64512
+        i32.and
+        i32.const 55296
+        i32.eq
+        local.tee $7
+        if (result i32)
+         local.get $3
+         i32.const 1
+         i32.add
+         local.get $4
+         i32.lt_u
+        else         
+         local.get $7
+        end
+        if
+         local.get $0
+         local.get $3
+         i32.const 1
+         i32.add
+         i32.const 1
+         i32.shl
+         i32.add
+         i32.load16_u offset=4
+         local.set $7
+         local.get $7
+         i32.const 64512
+         i32.and
+         i32.const 56320
+         i32.eq
+         if
+          i32.const 65536
+          local.get $1
+          i32.const 1023
+          i32.and
+          i32.const 10
+          i32.shl
+          i32.add
+          local.get $7
+          i32.const 1023
+          i32.and
+          i32.add
+          local.set $1
+          local.get $6
+          local.get $1
+          i32.const 18
+          i32.shr_u
+          i32.const 240
+          i32.or
+          i32.store8
+          local.get $6
+          local.get $1
+          i32.const 12
+          i32.shr_u
+          i32.const 63
+          i32.and
+          i32.const 128
+          i32.or
+          i32.store8 offset=1
+          local.get $6
+          local.get $1
+          i32.const 6
+          i32.shr_u
+          i32.const 63
+          i32.and
+          i32.const 128
+          i32.or
+          i32.store8 offset=2
+          local.get $6
+          local.get $1
+          i32.const 63
+          i32.and
+          i32.const 128
+          i32.or
+          i32.store8 offset=3
+          local.get $5
+          i32.const 4
+          i32.add
+          local.set $5
+          local.get $3
+          i32.const 2
+          i32.add
+          local.set $3
+          br $continue|0
+         end
+        end
+        local.get $6
+        local.get $1
+        i32.const 12
+        i32.shr_u
+        i32.const 224
+        i32.or
+        i32.store8
+        local.get $6
+        local.get $1
+        i32.const 6
+        i32.shr_u
+        i32.const 63
+        i32.and
+        i32.const 128
+        i32.or
+        i32.store8 offset=1
+        local.get $6
+        local.get $1
+        i32.const 63
+        i32.and
+        i32.const 128
+        i32.or
+        i32.store8 offset=2
+        local.get $5
+        i32.const 3
+        i32.add
+        local.set $5
+        local.get $3
+        i32.const 1
+        i32.add
+        local.set $3
+       end
+      end
+     end
+     br $continue|0
+    end
+   end
+  end
+  local.get $2
+  local.get $5
+  i32.add
+  i32.const 0
+  i32.store8
+  local.get $2
+ )
+ (func $~lib/datastream/DataStream#writeString (; 120 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  local.get $1
+  call $~lib/string/String#get:lengthUTF8
+  i32.const 1
+  i32.sub
+  local.set $2
+  local.get $0
+  local.get $2
+  call $~lib/datastream/DataStream#writeVarint32
+  local.get $2
+  i32.const 0
+  i32.eq
+  if
+   return
+  end
   local.get $0
   call $~lib/datastream/DataStream#isMeasureMode
   i32.eqz
   if
-   local.get $0
-   i32.load
-   local.get $0
-   i32.load offset=8
-   i32.add
    local.get $1
-   i32.store
+   call $~lib/string/String#toUTF8
+   local.set $3
+   block $~lib/memory/memory.copy|inlined.3
+    local.get $0
+    i32.load
+    local.get $0
+    i32.load offset=8
+    i32.add
+    local.set $4
+    local.get $3
+    local.set $5
+    local.get $2
+    local.set $6
+    local.get $4
+    local.get $5
+    local.get $6
+    call $~lib/internal/memory/memmove
+   end
   end
   local.get $0
   local.get $0
   i32.load offset=8
-  i32.const 4
+  local.get $2
   i32.add
   i32.store offset=8
  )
- (func $contract/SupplyChain/States#serialize (; 108 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $contract/SupplyChain/States#serialize (; 121 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   local.get $0
   i64.load
   call $~lib/datastream/DataStream#write<u64>
   local.get $1
   local.get $0
-  i32.load offset=8
-  call $~lib/datastream/DataStream#write<u32>
-  local.get $1
-  local.get $0
-  i32.load offset=12
-  call $~lib/datastream/DataStream#write<u32>
-  local.get $1
-  local.get $0
-  i64.load offset=16
+  i64.load offset=8
   call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i32.load offset=16
+  call $~lib/datastream/DataStream#write<u32>
+  local.get $1
+  local.get $0
+  i32.load offset=20
+  call $~lib/datastream/DataStream#write<u32>
   local.get $1
   local.get $0
   i64.load offset=24
@@ -4327,10 +5422,50 @@
   call $~lib/datastream/DataStream#write<u64>
   local.get $1
   local.get $0
-  i64.load offset=40
+  i32.load offset=40
+  call $~lib/datastream/DataStream#writeString
+  local.get $1
+  local.get $0
+  i64.load offset=48
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i32.load offset=56
+  call $~lib/datastream/DataStream#writeString
+  local.get $1
+  local.get $0
+  i64.load offset=64
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i64.load offset=72
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i64.load offset=80
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i64.load offset=88
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i64.load offset=96
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i64.load offset=104
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i64.load offset=112
+  call $~lib/datastream/DataStream#write<u64>
+  local.get $1
+  local.get $0
+  i64.load offset=120
   call $~lib/datastream/DataStream#write<u64>
  )
- (func $~lib/datastream/DataStream.measure<States> (; 109 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/datastream/DataStream.measure<States> (; 122 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   i32.const 0
   i32.const 0
@@ -4343,11 +5478,11 @@
   local.get $1
   i32.load offset=8
  )
- (func $contract/SupplyChain/States#primaryKey (; 110 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
+ (func $contract/SupplyChain/States#primaryKey (; 123 ;) (type $FUNCSIG$ji) (param $0 i32) (result i64)
   local.get $0
   i64.load
  )
- (func $~lib/dbmanager/DBManager<States>#emplace (; 111 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/dbmanager/DBManager<States>#emplace (; 124 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -4385,33 +5520,54 @@
   call $~lib/env/db_store_i64
   drop
  )
- (func $contract/SupplyChain/SupplyChain#harvest (; 112 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
-  (local $2 i32)
+ (func $contract/SupplyChain/SupplyChain#harvest (; 125 ;) (type $FUNCSIG$vijjiij) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i32) (param $4 i32) (param $5 i64)
+  (local $6 i32)
   local.get $0
   i32.load offset=28
   local.get $1
   call $~lib/dbmanager/DBManager<States>#exists
   i32.eqz
-  i32.const 3496
+  i32.const 3624
   call $~lib/env/ultrain_assert
   i32.const 0
   call $contract/SupplyChain/States#constructor
-  local.set $2
-  local.get $2
+  local.set $6
+  local.get $6
   local.get $1
   i64.store
-  local.get $2
+  local.get $6
   i32.const 0
-  i32.store offset=8
+  i32.store offset=16
+  local.get $6
   local.get $2
+  i64.store offset=8
+  local.get $6
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
-  i64.store offset=16
+  i64.store offset=64
+  local.get $6
+  local.get $5
+  i64.store offset=48
+  local.get $6
+  local.get $6
+  i64.load offset=64
+  i64.store offset=32
+  local.get $6
+  local.get $3
+  i32.store offset=40
+  local.get $6
+  local.get $4
+  i32.store offset=56
+  local.get $6
+  local.get $2
+  local.get $1
+  i64.add
+  i64.store offset=24
   local.get $0
   i32.load offset=28
-  local.get $2
+  local.get $6
   call $~lib/dbmanager/DBManager<States>#emplace
  )
- (func $~lib/datastream/DataStream#read<u32> (; 113 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/datastream/DataStream#read<u32> (; 126 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load
@@ -4428,23 +5584,23 @@
   i32.store offset=8
   local.get $1
  )
- (func $contract/SupplyChain/States#deserialize (; 114 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $contract/SupplyChain/States#deserialize (; 127 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $0
   local.get $1
   call $~lib/datastream/DataStream#read<u64>
   i64.store
   local.get $0
   local.get $1
-  call $~lib/datastream/DataStream#read<u32>
-  i32.store offset=8
-  local.get $0
-  local.get $1
-  call $~lib/datastream/DataStream#read<u32>
-  i32.store offset=12
-  local.get $0
-  local.get $1
   call $~lib/datastream/DataStream#read<u64>
-  i64.store offset=16
+  i64.store offset=8
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u32>
+  i32.store offset=16
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u32>
+  i32.store offset=20
   local.get $0
   local.get $1
   call $~lib/datastream/DataStream#read<u64>
@@ -4455,10 +5611,50 @@
   i64.store offset=32
   local.get $0
   local.get $1
+  call $~lib/datastream/DataStream#readString
+  i32.store offset=40
+  local.get $0
+  local.get $1
   call $~lib/datastream/DataStream#read<u64>
-  i64.store offset=40
+  i64.store offset=48
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#readString
+  i32.store offset=56
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store offset=64
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store offset=72
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store offset=80
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store offset=88
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store offset=96
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store offset=104
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store offset=112
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store offset=120
  )
- (func $~lib/dbmanager/DBManager<States>#loadObjectByPrimaryIterator (; 115 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/dbmanager/DBManager<States>#loadObjectByPrimaryIterator (; 128 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -4487,7 +5683,7 @@
   local.get $5
   call $contract/SupplyChain/States#deserialize
  )
- (func $~lib/dbmanager/DBManager<States>#get (; 116 ;) (type $FUNCSIG$iiji) (param $0 i32) (param $1 i64) (param $2 i32) (result i32)
+ (func $~lib/dbmanager/DBManager<States>#get (; 129 ;) (type $FUNCSIG$iiji) (param $0 i32) (param $1 i64) (param $2 i32) (result i32)
   (local $3 i32)
   local.get $0
   i64.load offset=8
@@ -4511,7 +5707,7 @@
   call $~lib/dbmanager/DBManager<States>#loadObjectByPrimaryIterator
   i32.const 1
  )
- (func $~lib/dbmanager/DBManager<States>#modify (; 117 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/dbmanager/DBManager<States>#modify (; 130 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -4524,13 +5720,13 @@
   local.get $2
   i32.const 0
   i32.ge_s
-  i32.const 3744
+  i32.const 3872
   call $~lib/env/ultrain_assert
   local.get $0
   i64.load offset=8
   call $~lib/env/current_receiver
   i64.eq
-  i32.const 3864
+  i32.const 3992
   call $~lib/env/ultrain_assert
   local.get $1
   call $~lib/datastream/DataStream.measure<States>
@@ -4557,7 +5753,7 @@
   i32.load offset=8
   call $~lib/env/db_update_i64
  )
- (func $contract/SupplyChain/SupplyChain#process (; 118 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $contract/SupplyChain/SupplyChain#process (; 131 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (local $3 i32)
   i32.const 0
@@ -4570,29 +5766,29 @@
   call $~lib/dbmanager/DBManager<States>#get
   local.set $3
   local.get $3
-  i32.const 3560
-  call $~lib/env/ultrain_assert
-  local.get $2
-  i32.load offset=8
-  i32.const 0
-  i32.eq
-  i32.const 3616
-  call $~lib/env/ultrain_assert
-  local.get $2
-  i64.load offset=16
-  call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
-  i64.eq
   i32.const 3688
   call $~lib/env/ultrain_assert
   local.get $2
+  i32.load offset=16
+  i32.const 0
+  i32.eq
+  i32.const 3744
+  call $~lib/env/ultrain_assert
+  local.get $2
+  i64.load offset=64
+  call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
+  i64.eq
+  i32.const 3816
+  call $~lib/env/ultrain_assert
+  local.get $2
   i32.const 1
-  i32.store offset=8
+  i32.store offset=16
   local.get $0
   i32.load offset=28
   local.get $2
   call $~lib/dbmanager/DBManager<States>#modify
  )
- (func $contract/SupplyChain/SupplyChain#pack (; 119 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $contract/SupplyChain/SupplyChain#pack (; 132 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (local $3 i32)
   i32.const 0
@@ -4605,29 +5801,29 @@
   call $~lib/dbmanager/DBManager<States>#get
   local.set $3
   local.get $3
-  i32.const 3560
+  i32.const 3688
   call $~lib/env/ultrain_assert
   local.get $2
-  i32.load offset=8
+  i32.load offset=16
   i32.const 1
   i32.eq
-  i32.const 3992
+  i32.const 4120
   call $~lib/env/ultrain_assert
   local.get $2
-  i64.load offset=16
+  i64.load offset=64
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
   i64.eq
-  i32.const 3688
+  i32.const 3816
   call $~lib/env/ultrain_assert
   local.get $2
   i32.const 2
-  i32.store offset=8
+  i32.store offset=16
   local.get $0
   i32.load offset=28
   local.get $2
   call $~lib/dbmanager/DBManager<States>#modify
  )
- (func $contract/SupplyChain/SupplyChain#sell (; 120 ;) (type $FUNCSIG$viji) (param $0 i32) (param $1 i64) (param $2 i32)
+ (func $contract/SupplyChain/SupplyChain#sell (; 133 ;) (type $FUNCSIG$viji) (param $0 i32) (param $1 i64) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   i32.const 0
@@ -4640,165 +5836,193 @@
   call $~lib/dbmanager/DBManager<States>#get
   local.set $4
   local.get $4
-  i32.const 3560
-  call $~lib/env/ultrain_assert
-  local.get $3
-  i32.load offset=8
-  i32.const 2
-  i32.eq
-  i32.const 4080
-  call $~lib/env/ultrain_assert
-  local.get $3
-  i64.load offset=16
-  call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
-  i64.eq
   i32.const 3688
   call $~lib/env/ultrain_assert
   local.get $3
-  i32.const 3
-  i32.store offset=8
-  local.get $3
-  local.get $2
-  i32.store offset=12
-  local.get $0
-  i32.load offset=28
-  local.get $3
-  call $~lib/dbmanager/DBManager<States>#modify
- )
- (func $contract/SupplyChain/SupplyChain#buy (; 121 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
-  (local $2 i32)
-  (local $3 i32)
-  i32.const 0
-  call $contract/SupplyChain/States#constructor
-  local.set $2
-  local.get $0
-  i32.load offset=28
-  local.get $1
-  local.get $2
-  call $~lib/dbmanager/DBManager<States>#get
-  local.set $3
-  local.get $3
-  i32.const 3560
-  call $~lib/env/ultrain_assert
-  local.get $2
-  i32.load offset=8
-  i32.const 3
+  i32.load offset=16
+  i32.const 2
   i32.eq
-  i32.const 4160
+  i32.const 4208
   call $~lib/env/ultrain_assert
-  local.get $2
-  i32.const 4
-  i32.store offset=8
-  local.get $2
-  call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
-  i64.store offset=24
- )
- (func $contract/SupplyChain/SupplyChain#ship (; 122 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
-  (local $2 i32)
-  (local $3 i32)
-  i32.const 0
-  call $contract/SupplyChain/States#constructor
-  local.set $2
-  local.get $0
-  i32.load offset=28
-  local.get $1
-  local.get $2
-  call $~lib/dbmanager/DBManager<States>#get
-  local.set $3
   local.get $3
-  i32.const 3560
-  call $~lib/env/ultrain_assert
-  local.get $2
-  i32.load offset=8
-  i32.const 4
-  i32.eq
-  i32.const 4248
-  call $~lib/env/ultrain_assert
-  local.get $2
-  i64.load offset=24
+  i64.load offset=64
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
   i64.eq
-  i32.const 4312
+  i32.const 3816
   call $~lib/env/ultrain_assert
+  local.get $3
+  i32.const 3
+  i32.store offset=16
+  local.get $3
   local.get $2
-  i32.const 5
-  i32.store offset=8
+  i32.store offset=20
   local.get $0
   i32.load offset=28
-  local.get $2
+  local.get $3
   call $~lib/dbmanager/DBManager<States>#modify
  )
- (func $contract/SupplyChain/SupplyChain#receive (; 123 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
-  (local $2 i32)
+ (func $contract/SupplyChain/SupplyChain#buy (; 134 ;) (type $FUNCSIG$vijj) (param $0 i32) (param $1 i64) (param $2 i64)
   (local $3 i32)
+  (local $4 i32)
   i32.const 0
   call $contract/SupplyChain/States#constructor
-  local.set $2
+  local.set $3
   local.get $0
   i32.load offset=28
   local.get $1
-  local.get $2
-  call $~lib/dbmanager/DBManager<States>#get
-  local.set $3
   local.get $3
-  i32.const 3560
+  call $~lib/dbmanager/DBManager<States>#get
+  local.set $4
+  local.get $4
+  i32.const 3688
   call $~lib/env/ultrain_assert
-  local.get $2
-  i32.load offset=8
-  i32.const 5
+  local.get $3
+  i32.load offset=16
+  i32.const 3
   i32.eq
-  i32.const 4384
+  i32.const 4288
   call $~lib/env/ultrain_assert
-  local.get $2
-  i32.const 6
-  i32.store offset=8
-  local.get $2
+  local.get $3
+  i32.const 4
+  i32.store offset=16
+  local.get $3
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
+  i64.store offset=72
+  local.get $3
+  local.get $3
+  i64.load offset=72
   i64.store offset=32
+  local.get $3
+  local.get $2
+  i64.store offset=80
   local.get $0
   i32.load offset=28
-  local.get $2
+  local.get $3
   call $~lib/dbmanager/DBManager<States>#modify
  )
- (func $contract/SupplyChain/SupplyChain#purchase (; 124 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
-  (local $2 i32)
+ (func $contract/SupplyChain/SupplyChain#ship (; 135 ;) (type $FUNCSIG$vijj) (param $0 i32) (param $1 i64) (param $2 i64)
   (local $3 i32)
+  (local $4 i32)
   i32.const 0
   call $contract/SupplyChain/States#constructor
-  local.set $2
+  local.set $3
   local.get $0
   i32.load offset=28
   local.get $1
-  local.get $2
-  call $~lib/dbmanager/DBManager<States>#get
-  local.set $3
   local.get $3
-  i32.const 3560
+  call $~lib/dbmanager/DBManager<States>#get
+  local.set $4
+  local.get $4
+  i32.const 3688
   call $~lib/env/ultrain_assert
-  local.get $2
-  i32.load offset=8
-  i32.const 6
+  local.get $3
+  i32.load offset=16
+  i32.const 4
   i32.eq
-  i32.const 4480
+  i32.const 4376
   call $~lib/env/ultrain_assert
-  local.get $2
+  local.get $3
+  i64.load offset=72
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
-  i64.store offset=40
+  i64.eq
+  i32.const 4440
+  call $~lib/env/ultrain_assert
+  local.get $3
+  i32.const 5
+  i32.store offset=16
+  local.get $3
   local.get $2
-  i32.const 7
-  i32.store offset=8
+  i64.store offset=88
   local.get $0
   i32.load offset=28
-  local.get $2
+  local.get $3
   call $~lib/dbmanager/DBManager<States>#modify
  )
- (func $~lib/dbmanager/DBManager<Farmers>#erase (; 125 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $contract/SupplyChain/SupplyChain#receive (; 136 ;) (type $FUNCSIG$vijj) (param $0 i32) (param $1 i64) (param $2 i64)
+  (local $3 i32)
+  (local $4 i32)
+  i32.const 0
+  call $contract/SupplyChain/States#constructor
+  local.set $3
+  local.get $0
+  i32.load offset=28
+  local.get $1
+  local.get $3
+  call $~lib/dbmanager/DBManager<States>#get
+  local.set $4
+  local.get $4
+  i32.const 3688
+  call $~lib/env/ultrain_assert
+  local.get $3
+  i32.load offset=16
+  i32.const 5
+  i32.eq
+  i32.const 4512
+  call $~lib/env/ultrain_assert
+  local.get $3
+  i32.const 6
+  i32.store offset=16
+  local.get $3
+  call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
+  i64.store offset=96
+  local.get $3
+  local.get $3
+  i64.load offset=96
+  i64.store offset=32
+  local.get $3
+  local.get $2
+  i64.store offset=104
+  local.get $0
+  i32.load offset=28
+  local.get $3
+  call $~lib/dbmanager/DBManager<States>#modify
+ )
+ (func $contract/SupplyChain/SupplyChain#purchase (; 137 ;) (type $FUNCSIG$vijj) (param $0 i32) (param $1 i64) (param $2 i64)
+  (local $3 i32)
+  (local $4 i32)
+  i32.const 0
+  call $contract/SupplyChain/States#constructor
+  local.set $3
+  local.get $0
+  i32.load offset=28
+  local.get $1
+  local.get $3
+  call $~lib/dbmanager/DBManager<States>#get
+  local.set $4
+  local.get $4
+  i32.const 3688
+  call $~lib/env/ultrain_assert
+  local.get $3
+  i32.load offset=16
+  i32.const 6
+  i32.eq
+  i32.const 4608
+  call $~lib/env/ultrain_assert
+  local.get $3
+  call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
+  i64.store offset=112
+  local.get $3
+  i32.const 7
+  i32.store offset=16
+  local.get $3
+  local.get $3
+  i64.load offset=112
+  i64.store offset=32
+  local.get $3
+  local.get $2
+  i64.store offset=120
+  local.get $0
+  i32.load offset=28
+  local.get $3
+  call $~lib/dbmanager/DBManager<States>#modify
+ )
+ (func $~lib/dbmanager/DBManager<Farmers>#erase (; 138 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   local.get $0
   i64.load offset=8
   call $~lib/env/current_receiver
   i64.eq
-  i32.const 4672
+  i32.const 4800
   call $~lib/env/ultrain_assert
   local.get $0
   local.get $1
@@ -4814,13 +6038,13 @@
    nop
   end
  )
- (func $~lib/dbmanager/DBManager<Distributors>#erase (; 126 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $~lib/dbmanager/DBManager<Distributors>#erase (; 139 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   local.get $0
   i64.load offset=8
   call $~lib/env/current_receiver
   i64.eq
-  i32.const 4672
+  i32.const 4800
   call $~lib/env/ultrain_assert
   local.get $0
   local.get $1
@@ -4836,13 +6060,13 @@
    nop
   end
  )
- (func $~lib/dbmanager/DBManager<Retailers>#erase (; 127 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $~lib/dbmanager/DBManager<Retailers>#erase (; 140 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   local.get $0
   i64.load offset=8
   call $~lib/env/current_receiver
   i64.eq
-  i32.const 4672
+  i32.const 4800
   call $~lib/env/ultrain_assert
   local.get $0
   local.get $1
@@ -4858,13 +6082,13 @@
    nop
   end
  )
- (func $~lib/dbmanager/DBManager<Consumers>#erase (; 128 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $~lib/dbmanager/DBManager<Consumers>#erase (; 141 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   local.get $0
   i64.load offset=8
   call $~lib/env/current_receiver
   i64.eq
-  i32.const 4672
+  i32.const 4800
   call $~lib/env/ultrain_assert
   local.get $0
   local.get $1
@@ -4880,49 +6104,429 @@
    nop
   end
  )
- (func $contract/SupplyChain/SupplyChain#empty (; 129 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $contract/SupplyChain/SupplyChain#empty (; 142 ;) (type $FUNCSIG$vi) (param $0 i32)
   call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
   local.get $0
   call $~lib/ultrain-ts-lib/src/contract/Contract#get:receiver
   i64.eq
-  i32.const 4568
+  i32.const 4696
   call $~lib/env/ultrain_assert
   local.get $0
   i32.load offset=12
-  i32.const 4656
+  i32.const 4784
   call $~lib/ultrain-ts-lib/src/account/NAME
   call $~lib/dbmanager/DBManager<Farmers>#erase
   global.get $~lib/ultrain-ts-lib/src/log/Log
-  i32.const 4784
+  i32.const 4912
   call $~lib/ultrain-ts-lib/src/log/Logger#s
   call $~lib/ultrain-ts-lib/src/log/Logger#flush
   local.get $0
   i32.load offset=16
-  i32.const 4816
+  i32.const 4944
   call $~lib/ultrain-ts-lib/src/account/NAME
   call $~lib/dbmanager/DBManager<Distributors>#erase
   local.get $0
   i32.load offset=20
-  i32.const 4832
+  i32.const 4960
   call $~lib/ultrain-ts-lib/src/account/NAME
   call $~lib/dbmanager/DBManager<Retailers>#erase
   local.get $0
   i32.load offset=24
-  i32.const 4848
+  i32.const 4976
   call $~lib/ultrain-ts-lib/src/account/NAME
   call $~lib/dbmanager/DBManager<Consumers>#erase
  )
- (func $~lib/ultrain-ts-lib/src/contract/Contract#onError (; 130 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/array/Array<Evaluate>#constructor (; 143 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  local.get $1
+  i32.const 268435454
+  i32.gt_u
+  if
+   call $~lib/env/abort
+   unreachable
+  end
+  local.get $1
+  i32.const 2
+  i32.shl
+  local.set $2
+  local.get $2
+  call $~lib/internal/arraybuffer/allocateUnsafe
+  local.set $3
+  block (result i32)
+   local.get $0
+   i32.eqz
+   if
+    i32.const 8
+    call $~lib/memory/memory.allocate
+    local.set $0
+   end
+   local.get $0
+   i32.const 0
+   i32.store
+   local.get $0
+   i32.const 0
+   i32.store offset=4
+   local.get $0
+  end
+  local.get $3
+  i32.store
+  local.get $0
+  local.get $1
+  i32.store offset=4
+  block $~lib/memory/memory.fill|inlined.3
+   local.get $3
+   i32.const 8
+   i32.add
+   local.set $4
+   i32.const 0
+   local.set $5
+   local.get $2
+   local.set $6
+   local.get $4
+   local.get $5
+   local.get $6
+   call $~lib/internal/memory/memset
+  end
+  local.get $0
+ )
+ (func $~lib/array/Array<Evaluate>#__set (; 144 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i32)
+  local.get $0
+  i32.load
+  local.set $3
+  local.get $3
+  i32.load
+  i32.const 2
+  i32.shr_u
+  local.set $4
+  local.get $1
+  local.get $4
+  i32.ge_u
+  if
+   local.get $1
+   i32.const 268435454
+   i32.ge_u
+   if
+    call $~lib/env/abort
+    unreachable
+   end
+   local.get $3
+   local.get $1
+   i32.const 1
+   i32.add
+   i32.const 2
+   i32.shl
+   call $~lib/internal/arraybuffer/reallocateUnsafe
+   local.set $3
+   local.get $0
+   local.get $3
+   i32.store
+   local.get $0
+   local.get $1
+   i32.const 1
+   i32.add
+   i32.store offset=4
+  end
+  block $~lib/internal/arraybuffer/STORE<Evaluate,Evaluate>|inlined.0
+   local.get $3
+   local.set $5
+   local.get $1
+   local.set $6
+   local.get $2
+   local.set $7
+   i32.const 0
+   local.set $8
+   local.get $5
+   local.get $6
+   i32.const 2
+   i32.shl
+   i32.add
+   local.get $8
+   i32.add
+   local.get $7
+   i32.store offset=8
+  end
+ )
+ (func $contract/SupplyChain/Evaluate#deserialize (; 145 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u32>
+  i32.store offset=8
+ )
+ (func $~lib/datastream/DataStream#readComplexVector<Evaluate> (; 146 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  local.get $0
+  call $~lib/datastream/DataStream#readVarint32
+  local.set $1
+  local.get $1
+  i32.const 0
+  i32.eq
+  if
+   i32.const 0
+   i32.const 0
+   call $~lib/array/Array<Evaluate>#constructor
+   return
+  end
+  i32.const 0
+  local.get $1
+  call $~lib/array/Array<Evaluate>#constructor
+  local.set $2
+  block $break|0
+   i32.const 0
+   local.set $3
+   loop $repeat|0
+    local.get $3
+    local.get $1
+    i32.lt_u
+    i32.eqz
+    br_if $break|0
+    block
+     local.get $2
+     local.get $3
+     block (result i32)
+      i32.const 12
+      call $~lib/memory/memory.allocate
+      local.set $4
+      local.get $4
+     end
+     call $~lib/array/Array<Evaluate>#__set
+     local.get $2
+     local.get $3
+     call $~lib/array/Array<Evaluate>#__get
+     local.get $0
+     call $contract/SupplyChain/Evaluate#deserialize
+    end
+    local.get $3
+    i32.const 1
+    i32.add
+    local.set $3
+    br $repeat|0
+    unreachable
+   end
+   unreachable
+  end
+  local.get $2
+ )
+ (func $contract/SupplyChain/Farmers#deserialize (; 147 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u64>
+  i64.store
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#readComplexVector<Evaluate>
+  i32.store offset=8
+  local.get $0
+  local.get $1
+  call $~lib/datastream/DataStream#read<u32>
+  i32.store offset=12
+ )
+ (func $~lib/dbmanager/DBManager<Farmers>#loadObjectByPrimaryIterator (; 148 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  local.get $1
+  i32.const 0
+  i32.const 0
+  call $~lib/env/db_get_i64
+  local.set $3
+  i32.const 0
+  local.get $3
+  call $~lib/typedarray/Uint8Array#constructor
+  local.set $4
+  i32.const 0
+  local.get $4
+  i32.load
+  local.get $3
+  call $~lib/datastream/DataStream#constructor
+  local.set $5
+  local.get $1
+  local.get $4
+  i32.load
+  local.get $3
+  call $~lib/env/db_get_i64
+  drop
+  local.get $2
+  local.get $5
+  call $contract/SupplyChain/Farmers#deserialize
+ )
+ (func $~lib/dbmanager/DBManager<Farmers>#get (; 149 ;) (type $FUNCSIG$iiji) (param $0 i32) (param $1 i64) (param $2 i32) (result i32)
+  (local $3 i32)
+  local.get $0
+  i64.load offset=8
+  local.get $0
+  i64.load offset=16
+  local.get $0
+  i64.load
+  local.get $1
+  call $~lib/env/db_find_i64
+  local.set $3
+  local.get $3
+  i32.const 0
+  i32.lt_s
+  if
+   i32.const 0
+   return
+  end
+  local.get $0
+  local.get $3
+  local.get $2
+  call $~lib/dbmanager/DBManager<Farmers>#loadObjectByPrimaryIterator
+  i32.const 1
+ )
+ (func $contract/SupplyChain/Evaluate#constructor (; 150 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  local.get $0
+  i32.eqz
+  if
+   i32.const 12
+   call $~lib/memory/memory.allocate
+   local.set $0
+  end
+  local.get $0
+  i64.const 0
+  i64.store
+  local.get $0
+  i32.const 0
+  i32.store offset=8
+  local.get $0
+ )
+ (func $~lib/array/Array<Evaluate>#push (; 151 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i32)
+  (local $9 i32)
+  local.get $0
+  i32.load offset=4
+  local.set $2
+  local.get $0
+  i32.load
+  local.set $3
+  local.get $3
+  i32.load
+  i32.const 2
+  i32.shr_u
+  local.set $4
+  local.get $2
+  i32.const 1
+  i32.add
+  local.set $5
+  local.get $2
+  local.get $4
+  i32.ge_u
+  if
+   local.get $2
+   i32.const 268435454
+   i32.ge_u
+   if
+    call $~lib/env/abort
+    unreachable
+   end
+   local.get $3
+   local.get $5
+   i32.const 2
+   i32.shl
+   call $~lib/internal/arraybuffer/reallocateUnsafe
+   local.set $3
+   local.get $0
+   local.get $3
+   i32.store
+  end
+  local.get $0
+  local.get $5
+  i32.store offset=4
+  block $~lib/internal/arraybuffer/STORE<Evaluate,Evaluate>|inlined.1
+   local.get $3
+   local.set $6
+   local.get $2
+   local.set $7
+   local.get $1
+   local.set $8
+   i32.const 0
+   local.set $9
+   local.get $6
+   local.get $7
+   i32.const 2
+   i32.shl
+   i32.add
+   local.get $9
+   i32.add
+   local.get $8
+   i32.store offset=8
+  end
+  local.get $5
+ )
+ (func $contract/SupplyChain/SupplyChain#rankFarmer (; 152 ;) (type $FUNCSIG$viji) (param $0 i32) (param $1 i64) (param $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  i32.const 0
+  call $contract/SupplyChain/Farmers#constructor
+  local.set $3
+  local.get $0
+  i32.load offset=12
+  local.get $1
+  local.get $3
+  call $~lib/dbmanager/DBManager<Farmers>#get
+  local.set $4
+  i32.const 0
+  call $contract/SupplyChain/Evaluate#constructor
+  local.set $5
+  local.get $5
+  call $~lib/ultrain-ts-lib/src/action/Action.sender.get:sender
+  i64.store
+  local.get $5
+  local.get $2
+  i32.store offset=8
+  local.get $3
+  i32.load offset=8
+  local.get $5
+  call $~lib/array/Array<Evaluate>#push
+  drop
+  local.get $3
+  local.get $3
+  i32.load offset=12
+  i32.const 1
+  i32.add
+  i32.store offset=12
+  local.get $0
+  i32.load offset=12
+  local.get $3
+  call $~lib/dbmanager/DBManager<Farmers>#emplace
+ )
+ (func $~lib/ultrain-ts-lib/src/contract/Contract#onError (; 153 ;) (type $FUNCSIG$vi) (param $0 i32)
   nop
  )
- (func $~lib/ultrain-ts-lib/src/contract/Contract#onStop (; 131 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/ultrain-ts-lib/src/contract/Contract#onStop (; 154 ;) (type $FUNCSIG$vi) (param $0 i32)
   nop
  )
- (func $contract/SupplyChain/apply (; 132 ;) (type $FUNCSIG$vjjjj) (param $0 i64) (param $1 i64) (param $2 i64) (param $3 i64)
+ (func $contract/SupplyChain/apply (; 155 ;) (type $FUNCSIG$vjjjj) (param $0 i64) (param $1 i64) (param $2 i64) (param $3 i64)
   (local $4 i32)
   (local $5 i32)
   (local $6 i64)
-  (local $7 i32)
+  (local $7 i64)
+  (local $8 i32)
+  (local $9 i32)
+  (local $10 i64)
   i32.const 0
   local.get $0
   call $contract/SupplyChain/SupplyChain#constructor
@@ -4952,7 +6556,7 @@
     call $contract/SupplyChain/SupplyChain#addFarmer
    end
    local.get $4
-   i32.const 2816
+   i32.const 2832
    call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
    if
     local.get $5
@@ -4963,7 +6567,7 @@
     call $contract/SupplyChain/SupplyChain#addDistributor
    end
    local.get $4
-   i32.const 3040
+   i32.const 3072
    call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
    if
     local.get $5
@@ -4974,7 +6578,7 @@
     call $contract/SupplyChain/SupplyChain#addRetailer
    end
    local.get $4
-   i32.const 3256
+   i32.const 3304
    call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
    if
     local.get $5
@@ -4985,74 +6589,83 @@
     call $contract/SupplyChain/SupplyChain#addConsumer
    end
    local.get $4
-   i32.const 3472
-   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
-   if
-    local.get $5
-    call $~lib/datastream/DataStream#read<u64>
-    local.set $6
-    local.get $4
-    local.get $6
-    call $contract/SupplyChain/SupplyChain#harvest
-   end
-   local.get $4
    i32.const 3536
    call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
    if
     local.get $5
     call $~lib/datastream/DataStream#read<u64>
     local.set $6
-    local.get $4
-    local.get $6
-    call $contract/SupplyChain/SupplyChain#process
-   end
-   local.get $4
-   i32.const 3976
-   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
-   if
     local.get $5
     call $~lib/datastream/DataStream#read<u64>
-    local.set $6
-    local.get $4
-    local.get $6
-    call $contract/SupplyChain/SupplyChain#pack
-   end
-   local.get $4
-   i32.const 4064
-   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
-   if
-    local.get $5
-    call $~lib/datastream/DataStream#read<u64>
-    local.set $6
-    local.get $5
-    call $~lib/datastream/DataStream#read<u32>
     local.set $7
+    local.get $5
+    call $~lib/datastream/DataStream#readString
+    local.set $8
+    local.get $5
+    call $~lib/datastream/DataStream#readString
+    local.set $9
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $10
     local.get $4
     local.get $6
     local.get $7
+    local.get $8
+    local.get $9
+    local.get $10
+    call $contract/SupplyChain/SupplyChain#harvest
+   end
+   local.get $4
+   i32.const 3664
+   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
+   if
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $10
+    local.get $4
+    local.get $10
+    call $contract/SupplyChain/SupplyChain#process
+   end
+   local.get $4
+   i32.const 4104
+   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
+   if
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $10
+    local.get $4
+    local.get $10
+    call $contract/SupplyChain/SupplyChain#pack
+   end
+   local.get $4
+   i32.const 4192
+   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
+   if
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $10
+    local.get $5
+    call $~lib/datastream/DataStream#read<u32>
+    local.set $9
+    local.get $4
+    local.get $10
+    local.get $9
     call $contract/SupplyChain/SupplyChain#sell
    end
    local.get $4
-   i32.const 4144
+   i32.const 4272
    call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
    if
     local.get $5
     call $~lib/datastream/DataStream#read<u64>
-    local.set $6
+    local.set $10
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $7
     local.get $4
-    local.get $6
+    local.get $10
+    local.get $7
     call $contract/SupplyChain/SupplyChain#buy
-   end
-   local.get $4
-   i32.const 4232
-   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
-   if
-    local.get $5
-    call $~lib/datastream/DataStream#read<u64>
-    local.set $6
-    local.get $4
-    local.get $6
-    call $contract/SupplyChain/SupplyChain#ship
    end
    local.get $4
    i32.const 4360
@@ -5060,28 +6673,66 @@
    if
     local.get $5
     call $~lib/datastream/DataStream#read<u64>
-    local.set $6
+    local.set $7
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $10
     local.get $4
-    local.get $6
-    call $contract/SupplyChain/SupplyChain#receive
+    local.get $7
+    local.get $10
+    call $contract/SupplyChain/SupplyChain#ship
    end
    local.get $4
-   i32.const 4456
+   i32.const 4488
    call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
    if
     local.get $5
     call $~lib/datastream/DataStream#read<u64>
-    local.set $6
+    local.set $10
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $7
     local.get $4
-    local.get $6
+    local.get $10
+    local.get $7
+    call $contract/SupplyChain/SupplyChain#receive
+   end
+   local.get $4
+   i32.const 4584
+   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
+   if
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $7
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $10
+    local.get $4
+    local.get $7
+    local.get $10
     call $contract/SupplyChain/SupplyChain#purchase
    end
    local.get $4
-   i32.const 4552
+   i32.const 4680
    call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
    if
     local.get $4
     call $contract/SupplyChain/SupplyChain#empty
+   end
+   local.get $4
+   i32.const 4992
+   call $~lib/ultrain-ts-lib/src/contract/Contract#isAction
+   if
+    local.get $5
+    call $~lib/datastream/DataStream#read<u64>
+    local.set $10
+    local.get $5
+    call $~lib/datastream/DataStream#read<u32>
+    local.set $9
+    local.get $4
+    local.get $10
+    local.get $9
+    call $contract/SupplyChain/SupplyChain#rankFarmer
    end
    local.get $4
    i32.const 2536
@@ -5094,9 +6745,9 @@
    call $~lib/ultrain-ts-lib/src/contract/Contract#onStop
   end
  )
- (func $start (; 133 ;) (type $FUNCSIG$v)
+ (func $start (; 156 ;) (type $FUNCSIG$v)
   call $start:contract/SupplyChain
  )
- (func $null (; 134 ;) (type $FUNCSIG$v)
+ (func $null (; 157 ;) (type $FUNCSIG$v)
  )
 )

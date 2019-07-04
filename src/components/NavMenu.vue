@@ -26,11 +26,7 @@
 </el-row>
 </template>
 
-<style scoped>
-  .over-hide{
-    overflow: hidden;
-  }
-</style>
+
 
 <script>
   import menu from '@/config/menu-config'
