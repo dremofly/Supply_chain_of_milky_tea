@@ -47,18 +47,33 @@ export default {
       console.log(" *************** Buy ***************")
       // TODO: 读取upc的值
       // TODO: 发起harvest的交易
+      /*
       config.keyProvider = "5JFz7EbcsCNHrDLuf9VpHtnLdepL4CcAEXu7AtSUYfcoiszursr"; // jerry
       let creator = "ben";
       const u3 = createU3(config);
       let contract = await u3.contract(creator);
 
-		  await contract.buy(this.upc, Date.now(), {authorization: [`jerry@active`]})
+      await contract.buy(this.upc, Date.now(), {authorization: [`jerry@active`]})
+      */
+
+      const u3 = createU3(config);
+      const contract = 'dremofly1'
+      const action = 'buy'
+      const params = [this.upc, Date.now()]
+      const result = await window.Cona.getCurrentNetworkChains()
+      if(result.success) {
+        const tx = await window.Cona.callContract({ contract, action, params, chainId: result.data[1]._id });
+        console.log(tx)
+      } else {
+        console.log(reuslt.msg)
+      }
+    
       // 查询状态
       const farmerstable = "state";
 		 const farmerscope = "s.state";
 		 let farmers = await u3.getTableRecords({
 			 "json": true,
-			 "code": creator,
+			 "code": contract,
 			 "scope": farmerscope,
 			 "table": farmerstable
 		 });
@@ -69,18 +84,33 @@ export default {
       console.log("*************** Ship ***************")
       // TODO: 读取upc的值
       // TODO: 发起harvest的交易
+      /*
       config.keyProvider = "5JFz7EbcsCNHrDLuf9VpHtnLdepL4CcAEXu7AtSUYfcoiszursr"; // jerry
       let creator = "ben";
       const u3 = createU3(config);
       let contract = await u3.contract(creator);
-		  await contract.ship(this.upc, Date.now(), {authorization: [`jerry@active`]})
+      await contract.ship(this.upc, Date.now(), {authorization: [`jerry@active`]})
+      */
+
+      const u3 = createU3(config);
+      const contract = 'dremofly1'
+      const action = 'ship'
+      const params = [this.upc, Date.now()]
+      const result = await window.Cona.getCurrentNetworkChains()
+      if(result.success) {
+        const tx = await window.Cona.callContract({ contract, action, params, chainId: result.data[1]._id });
+        console.log(tx)
+      } else {
+        console.log(reuslt.msg)
+      }
+
       // 查询状态
       // TODO: 改成正确的命名，上同
       const farmerstable = "state";
 		 const farmerscope = "s.state";
 		 let farmers = await u3.getTableRecords({
 			 "json": true,
-			 "code": creator,
+			 "code": contract,
 			 "scope": farmerscope,
 			 "table": farmerstable
 		 });

@@ -22,11 +22,26 @@ export default {
       console.log("harvest")
       // TODO: 读取upc的值
       // TODO: 发起harvest的交易
+      /*
       config.keyProvider = "5KXYYEWSFRWfNVrMPaVcxiRTjD9PzHjBSzxhA9MeQKHPMxWP8kU"; // tom
       let creator = "ben";
       const u3 = createU3(config);
       let contract = await u3.contract(creator);
-		  await contract.receive(this.upc, Date.now(), {authorization: [`tom@active`]})
+      await contract.receive(this.upc, Date.now(), {authorization: [`tom@active`]})
+      */
+
+      const u3 = createU3(config);
+      const contract = 'dremofly1'
+      const action = 'receive'
+      const params = [this.upc, Date.now()]
+      const result = await window.Cona.getCurrentNetworkChains()
+      if(result.success) {
+        const tx = await window.Cona.callContract({ contract, action, params, chainId: result.data[1]._id });
+        console.log(tx)
+      } else {
+        console.log(reuslt.msg)
+      }
+
       // 查询状态
       const farmerstable = "state";
 		 const farmerscope = "s.state";

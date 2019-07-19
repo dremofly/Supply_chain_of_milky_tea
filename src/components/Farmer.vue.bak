@@ -47,31 +47,17 @@ export default {
       console.log("harvest")
       // TODO: 读取upc的值
       // TODO: 发起harvest的交易
-      /*
       config.keyProvider = "5J9bWm2ThenDm3tjvmUgHtWCVMUdjRR1pxnRtnJjvKA4b2ut5WK"; // alice
       let creator = "ben";
       const u3 = createU3(config);
       let contract = await u3.contract(creator);
-      await contract.harvest(this.upc, this.sku, this.productType, this.productInfo, Date.now(), {authorization: [`alice@active`]})
-      */
-      const u3 = createU3(config);
-      const contract = 'dremofly1'
-      const action = 'harvest'
-      const params = [this.upc, this.sku, this.productType, this.productInfo, Date.now()]
-      const result = await window.Cona.getCurrentNetworkChains()
-      if(result.success) {
-        const tx = await window.Cona.callContract({ contract, action, params, chainId: result.data[1]._id });
-        console.log(tx)
-      } else {
-        console.log(reuslt.msg)
-      }
-
+		  await contract.harvest(this.upc, this.sku, this.productType, this.productInfo, Date.now(), {authorization: [`alice@active`]})
       // 查询状态
       const farmerstable = "state";
 		  const farmerscope = "s.state";
 		  let farmers = await u3.getTableRecords({
 			 "json": true,
-			 "code": contract,
+			 "code": creator,
 			 "scope": farmerscope,
 			 "table": farmerstable
 		 });
@@ -82,33 +68,18 @@ export default {
       console.log("process")
       // TODO: 读取upc的值
       // TODO: 发起harvest的交易
-      /*
       config.keyProvider = "5J9bWm2ThenDm3tjvmUgHtWCVMUdjRR1pxnRtnJjvKA4b2ut5WK"; // alice
       let creator = "ben";
       const u3 = createU3(config);
       let contract = await u3.contract(creator);
-      await contract.process(this.upc, {authorization: [`alice@active`]})
-      */
-
-      const u3 = createU3(config);
-      const contract = 'dremofly1'
-      const action = 'process'
-      const params = [this.upc]
-      const result = await window.Cona.getCurrentNetworkChains()
-      if(result.success) {
-        const tx = await window.Cona.callContract({ contract, action, params, chainId: result.data[1]._id });
-        console.log(tx)
-      } else {
-        console.log(reuslt.msg)
-      } 
-
+		  await contract.process(this.upc, {authorization: [`alice@active`]})
       // 查询状态
       // TODO: 改成正确的命名，上同
       const farmerstable = "state";
 		 const farmerscope = "s.state";
 		 let farmers = await u3.getTableRecords({
 			 "json": true,
-			 "code": contract,
+			 "code": creator,
 			 "scope": farmerscope,
 			 "table": farmerstable
 		 });
@@ -117,31 +88,17 @@ export default {
 
     async pack () {
       console.log("Pakc")
-      /*
       config.keyProvider = "5J9bWm2ThenDm3tjvmUgHtWCVMUdjRR1pxnRtnJjvKA4b2ut5WK"; // alice
       let creator = "ben";
       const u3 = createU3(config);
       let contract = await u3.contract(creator);
-      await contract.pack(this.upc, {authorization: [`alice@active`]})
-      */
-
-      const u3 = createU3(config);
-      const contract = 'dremofly1'
-      const action = 'pack'
-      const params = [this.upc]
-      const result = await window.Cona.getCurrentNetworkChains()
-      if(result.success) {
-        const tx = await window.Cona.callContract({ contract, action, params, chainId: result.data[1]._id });
-        console.log(tx)
-      } else {
-        console.log(reuslt.msg)
-      }
+		  await contract.pack(this.upc, {authorization: [`alice@active`]})
       // 查询状态
       const farmerstable = "state";
 		  const farmerscope = "s.state";
 		  let farmers = await u3.getTableRecords({
 			 "json": true,
-			 "code": contract,
+			 "code": creator,
 			 "scope": farmerscope,
 			 "table": farmerstable
 		  });
@@ -152,54 +109,24 @@ export default {
       console.log("sell")
       // TODO: 读取upc的值
       // TODO: 发起harvest的交易
-      /*
       config.keyProvider = "5J9bWm2ThenDm3tjvmUgHtWCVMUdjRR1pxnRtnJjvKA4b2ut5WK"; // alice
       let creator = "ben";
       const u3 = createU3(config);
       let contract = await u3.contract(creator);
       // TODO: 添加price
-      await contract.sell(this.upc, 1, {authorization: [`alice@active`]})
-      */
-
-      const u3 = createU3(config);
-      const contract = 'dremofly1'
-      const action = 'sell'
-      const params = [this.upc, this.price]
-      const result = await window.Cona.getCurrentNetworkChains()
-      if(result.success) {
-        const tx = await window.Cona.callContract({ contract, action, params, chainId: result.data[1]._id });
-        console.log(tx)
-      } else {
-        console.log(reuslt.msg)
-      }
-
+		  await contract.sell(this.upc, 1, {authorization: [`alice@active`]})
       // 查询状态
       const farmerstable = "state";
 		 const farmerscope = "s.state";
 		 let farmers = await u3.getTableRecords({
 			 "json": true,
-			 "code": contract,
+			 "code": creator,
 			 "scope": farmerscope,
 			 "table": farmerstable
 		 });
 		 console.log(farmers.rows)
     }
 
-  },
-  async mounted() {
-      window.addEventListener('load', function () {
-        if (typeof window.Cona !== 'undefined') {
-          console.log('Cona is enabled')
-        } else {
-          console.log('Cona is not installed')
-        }
-    })
-
-    const rs = await window.Cona.connectRequest()
-    console.log("rs: ", rs)
-    
-    const sign = await window.Cona.sign();
-    console.log("sign: ", sign)
-    },
+  }
 }
 </script>
