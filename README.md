@@ -11,3 +11,6 @@ robin deploy
 npm run serve
 ```
 
+## 合约地址
+`bf49e6b0e5b50c4e058250753e61d4e02170e4557d1e8dadb2ad6a43543534a8`
+
