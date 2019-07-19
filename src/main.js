@@ -14,5 +14,6 @@ Vue.use(ElementUI)
 new Vue({
   template: '<App/>',
   router,
+  info: 'info',
   render: h => h(App),
 }).$mount('#app')

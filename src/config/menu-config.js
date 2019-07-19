@@ -13,5 +13,8 @@ module.exports = [{
   }, {
     name: 'Consumer',
     componentName: 'Consumer'
+  }, {
+    name: 'Search',
+    componentName: 'Search'
   }]
 }]
